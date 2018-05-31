@@ -4,4 +4,5 @@
     <string name="novo_jogo">Novo Jogo</string>
     <string name="title_activity_help">helpActivity</string>
     <string name="title_activity_pontuacao">pontuacaoActivity</string>
+    <string name="title_activity_game">gameActivity</string>
 </resources>

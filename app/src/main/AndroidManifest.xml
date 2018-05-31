@@ -26,6 +26,10 @@
         <activity
             android:name=".pontuacaoActivity"
             android:label="@string/title_activity_pontuacao"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".gameActivity"
+            android:label="@string/title_activity_game"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
