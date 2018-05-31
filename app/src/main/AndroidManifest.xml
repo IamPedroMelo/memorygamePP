@@ -22,6 +22,10 @@
         <activity
             android:name=".helpActivity"
             android:label="@string/title_activity_help"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".pontuacaoActivity"
+            android:label="@string/title_activity_pontuacao"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
