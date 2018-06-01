@@ -1,5 +1,6 @@
 package pt.ipg.memorygamepp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class menuActivity extends AppCompatActivity {
 
@@ -48,5 +50,26 @@ public class menuActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void MudaActivityGame(View view) {
+
+        //Intent intent = new Intent(this,gameActivity.class);
+        //startActivity(intent);
+    }
+
+    public void MudaActivityAjuda(View view) {
+        Intent intent = new Intent(this,helpActivity.class);
+        startActivity(intent);
+    }
+
+    public void Sair(View view) {
+
+    }
+
+    public void MudaActivityPontuacao(View view) {
+        Intent intent = new Intent(this,pontuacaoActivity.class);
+        startActivity(intent);
     }
 }

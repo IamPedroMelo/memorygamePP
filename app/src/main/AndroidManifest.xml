@@ -28,9 +28,14 @@
             android:label="@string/title_activity_pontuacao"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".gameActivity"
+            android:name=".GameActivity"
             android:label="@string/title_activity_game"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:parentActivityName=".menuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipg.memorygamepp.menuActivity" />
+        </activity>
     </application>
 
 </manifest>
