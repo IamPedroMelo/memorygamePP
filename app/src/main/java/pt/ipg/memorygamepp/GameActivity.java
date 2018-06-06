@@ -3,6 +3,7 @@ package pt.ipg.memorygamepp;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -92,8 +93,30 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
-    public void onClick(View v) {
-        
+    public void onClick(View view) {
+
+        if(isBusy) return;
+        MemoryGame button = (MemoryGame) view;
+        if(button.isMatched) return;
+
+        if(selectedButton1 == null){
+            selectedButton1 = button;
+            selectedButton1.flip();
+            return;
+        }
+
+        if(selectedButton1.getId()== button.getId()){
+            return;
+        }
+
+        if(selectedButton1.getFrontDrawableId()==button.getFrontDrawableId()){
+            button.flip();
+            button.setMatched(true);
+            selectedButton1.setEnabled(false);
+            selectedButton2.setEnabled(false);
+        }
+
     }
 }
