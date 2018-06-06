@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.GridLayout;
 
 public class menuActivity extends AppCompatActivity {
 
@@ -57,6 +58,7 @@ public class menuActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this,GameActivity.class);
         startActivity(intent);
+
     }
 
     public void MudaActivityAjuda(View view) {
