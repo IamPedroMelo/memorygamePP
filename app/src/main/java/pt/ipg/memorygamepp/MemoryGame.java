@@ -54,4 +54,21 @@ public class MemoryGame extends android.support.v7.widget.AppCompatButton {
     public void setMatched(boolean matched) {
         isMatched = matched;
     }
+
+    public int getFrontDrawableId() {
+        return frontDrawableId;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void flip() {
+        if (isMatched) return;
+        if (isFlipped) {
+            setBackground(back);
+            isFlipped = false;
+        } else {
+            setBackground(front);
+            isFlipped = true;
+        }
+    }
+
 }
