@@ -3,6 +3,7 @@ package pt.ipg.memorygamepp;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -114,9 +115,34 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         if(selectedButton1.getFrontDrawableId()==button.getFrontDrawableId()){
             button.flip();
             button.setMatched(true);
+            selectedButton1.setMatched(true);
+
             selectedButton1.setEnabled(false);
-            selectedButton2.setEnabled(false);
+            button.setEnabled(false);
+
+            selectedButton1 = null;
+
+            return;
+        } else {
+            selectedButton2 = button;
+            selectedButton2.flip();
+            isBusy = true;
+
+            final Handler handler = new Handler();
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    selectedButton2.flip();
+                    selectedButton1.flip();
+                    selectedButton1 = null;
+                    selectedButton2 = null;
+                    isBusy = false;
+                }
+            },500);
+
         }
+
 
     }
 }
