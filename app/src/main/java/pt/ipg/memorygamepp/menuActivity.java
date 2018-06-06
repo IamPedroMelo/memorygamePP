@@ -55,8 +55,8 @@ public class menuActivity extends AppCompatActivity {
 
     public void MudaActivityGame(View view) {
 
-        //Intent intent = new Intent(this,gameActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this,GameActivity.class);
+        startActivity(intent);
     }
 
     public void MudaActivityAjuda(View view) {
@@ -65,7 +65,8 @@ public class menuActivity extends AppCompatActivity {
     }
 
     public void Sair(View view) {
-
+        finish();
+        System.exit(0);
     }
 
     public void MudaActivityPontuacao(View view) {
