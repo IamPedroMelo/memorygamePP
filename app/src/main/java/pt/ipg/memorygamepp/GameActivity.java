@@ -1,5 +1,7 @@
 package pt.ipg.memorygamepp;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,7 +10,9 @@ import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class GameActivity extends AppCompatActivity {
+import java.util.Random;
+
+public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
     private int numberOfElements;
 
@@ -24,6 +28,7 @@ public class GameActivity extends AppCompatActivity {
 
 
 
+    @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +55,45 @@ public class GameActivity extends AppCompatActivity {
         buttonGraphics[6]=R.drawable.botao_17;
         buttonGraphics[7]=R.drawable.botao_18;
 
+        buttonGraphicLocations = new int[numberOfElements];
+
+        shuffleButtonGraphics();
+
+        for (int r = 0; r < numRow; r++) {
+            for (int c = 0; c < numColumns; c++) {
+                MemoryGame tempButton = new MemoryGame(this,r,c,buttonGraphics[buttonGraphicLocations[r *numColumns+c]]);
+                tempButton.setId(View.generateViewId());
+                tempButton.setOnClickListener(this);
+                buttons[r*numColumns+c] = tempButton;
+                gridLayout.addView(tempButton);
+            }
+        }
 
 
     }
 
+    protected void shuffleButtonGraphics(){
+
+        Random rand = new Random();
+
+        for (int i = 0; i < numberOfElements; i++) {
+            buttonGraphicLocations[i]= i % (numberOfElements /2);
+        }
+
+        for (int i = 0; i < numberOfElements; i++) {
+            int temp = buttonGraphicLocations[i];
+
+            int swapIndex = rand.nextInt(16);
+
+            buttonGraphicLocations[i] = buttonGraphicLocations[swapIndex];
+
+            buttonGraphicLocations[swapIndex] = temp;
+        }
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        
+    }
 }
