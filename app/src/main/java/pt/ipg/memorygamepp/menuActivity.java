@@ -14,6 +14,8 @@ import android.widget.GridLayout;
 
 public class menuActivity extends AppCompatActivity {
 
+    private Button buttonjogo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +31,21 @@ public class menuActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
+
+        buttonjogo = (Button) findViewById(R.id.buttonnovojogo);
+
+        buttonjogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(menuActivity.this,GameActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
+
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -51,15 +66,17 @@ public class menuActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
 
-    public void MudaActivityGame(View view) {
+    /*public void MudaActivityGame(View view) {
 
         Intent intent = new Intent(this,GameActivity.class);
         startActivity(intent);
 
-    }
+    }*/
+
+
 
     public void MudaActivityAjuda(View view) {
         Intent intent = new Intent(this,helpActivity.class);
@@ -68,7 +85,7 @@ public class menuActivity extends AppCompatActivity {
 
     public void Sair(View view) {
         finish();
-        System.exit(0);
+        //System.exit(0);
     }
 
     public void MudaActivityPontuacao(View view) {

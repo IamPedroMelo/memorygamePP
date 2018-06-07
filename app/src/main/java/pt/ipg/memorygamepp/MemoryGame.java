@@ -34,7 +34,7 @@ public class MemoryGame extends android.support.v7.widget.AppCompatButton {
         frontDrawableId = frontImageDrawableId;
 
         front = AppCompatDrawableManager.get().getDrawable(context, frontImageDrawableId);
-        back = AppCompatDrawableManager.get().getDrawable(context, android.R.drawable.botao_question_mark);
+        //back = AppCompatDrawableManager.get().getDrawable(context, android.R.drawable.botao_question_mark);
 
         setBackground(back);
 
