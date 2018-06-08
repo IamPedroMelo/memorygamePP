@@ -1,6 +1,7 @@
 package pt.ipg.memorygamepp;
 
 import android.annotation.TargetApi;
+import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,7 +9,9 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayout;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.widget.GridLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
@@ -19,6 +22,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private int numberOfElements;
 
     private MemoryGame[] buttons;
+
+    private buttons[][]
 
     private int[] buttonGraphicLocations;
     private int[] buttonGraphics;
@@ -38,10 +43,36 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        GridLayout gridLayout = (GridLayout) findViewById(R.id.grid_layout_4x4);
 
-        int numColumns = gridLayout.getColumnCount();
-        int numRow = gridLayout.getRowCount();
+        Display display = getWindowManager().getDefaultDisplay();
+        //DisplayMetrics displayMetrics = GameActivity.this.getResources().getDisplayMetrics();
+
+        Point size = new Point();
+        display.getSize(size);
+
+        int width = size.x < size.y ? size.x : size.y;
+
+
+        buttons[0][0] = findViewById(R.id.button00);
+
+
+        for (int row = 0; row < 4; row++) {
+            for (int col = 0; col < 4; col++) {
+
+            }
+        }
+
+        button1.setWidth(width/4);
+        button2.setHeight(width/4);
+
+
+
+        /*android.support.v7.widget.GridLayout grid = (android.support.v7.widget.GridLayout)findViewById(R.id.grid_layout_4x4);
+
+       // GridLayout gridLayout = (GridLayout) findViewById(R.id.grid_layout_4x4);
+
+        int numColumns = grid.getColumnCount();
+        int numRow = grid.getRowCount();
 
         numberOfElements = numColumns * numRow;
 
@@ -67,10 +98,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 tempButton.setId(View.generateViewId());
                 tempButton.setOnClickListener(this);
                 buttons[r*numColumns+c] = tempButton;
-                gridLayout.addView(tempButton);
+                grid.addView(tempButton);
             }
         }
-
+    */
 
     }
 

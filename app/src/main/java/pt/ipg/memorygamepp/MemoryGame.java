@@ -6,10 +6,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.AppCompatDrawableManager;
-import android.widget.Button;
 import android.widget.GridLayout;
 
-import pt.ipg.memorygamepp.R;
 
 public class MemoryGame extends android.support.v7.widget.AppCompatButton {
 
@@ -34,7 +32,7 @@ public class MemoryGame extends android.support.v7.widget.AppCompatButton {
         frontDrawableId = frontImageDrawableId;
 
         front = AppCompatDrawableManager.get().getDrawable(context, frontImageDrawableId);
-        //back = AppCompatDrawableManager.get().getDrawable(context, android.R.drawable.botao_question_mark);
+        back = AppCompatDrawableManager.get().getDrawable(context, R.drawable.botao_question_mark);
 
         setBackground(back);
 
