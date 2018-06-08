@@ -12,7 +12,7 @@ import android.widget.GridLayout;
 public class MemoryGame extends android.support.v7.widget.AppCompatButton {
 
     protected int row;
-    protected int column;
+    protected int col;
     protected int frontDrawableId;
 
     protected boolean isFlipped = false;
@@ -28,7 +28,7 @@ public class MemoryGame extends android.support.v7.widget.AppCompatButton {
         super(context);
 
         row = r;
-        column = c;
+        col = c;
         frontDrawableId = frontImageDrawableId;
 
         front = AppCompatDrawableManager.get().getDrawable(context, frontImageDrawableId);

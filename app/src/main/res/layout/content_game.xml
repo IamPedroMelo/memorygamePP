@@ -2,24 +2,19 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/grid_layout_4x4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".GameActivity"
-    android:id="@+id/grid_layout_4x4"
     android:columnCount="4"
     android:rowCount="4"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".GameActivity"
     tools:showIn="@layout/activity_game">
 
     <Button
         android:id="@+id/button00"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:layout_row="0"
         android:text="" />
 
     <Button
@@ -98,14 +93,13 @@
         android:id="@+id/button31"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:layout_row="0"
         android:text="" />
 
     <Button
         android:id="@+id/button32"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:text="" />
+     />
 
     <Button
         android:id="@+id/button33"
