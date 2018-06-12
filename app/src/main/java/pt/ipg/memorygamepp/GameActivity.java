@@ -63,7 +63,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         button[3][3] = (Button) findViewById(R.id.button33);
 
 
-        Display display = getWindowManager().getDefaultDisplay();
+
+
+       /* Display display = getWindowManager().getDefaultDisplay();
 
         Point size = new Point();
         display.getSize(size);
@@ -80,7 +82,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 //button[row][col].setWidth(width/4);
                 //button[row][col].setHeight(width/4);
             }
-        }
+        }*/
 
 
         /*android.support.v7.widget.GridLayout grid = (android.support.v7.widget.GridLayout)findViewById(R.id.grid_layout_4x4);

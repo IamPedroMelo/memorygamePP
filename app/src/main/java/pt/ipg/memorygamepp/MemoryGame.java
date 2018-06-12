@@ -26,7 +26,6 @@ public class MemoryGame extends android.support.v7.widget.AppCompatButton {
     @SuppressLint("RestrictedApi")
     public MemoryGame (Context context , int r, int c , int frontImageDrawableId) {
         super(context);
-
         row = r;
         col = c;
         frontDrawableId = frontImageDrawableId;
@@ -36,12 +35,12 @@ public class MemoryGame extends android.support.v7.widget.AppCompatButton {
 
         setBackground(back);
 
-        GridLayout.LayoutParams tempParams = new GridLayout.LayoutParams(GridLayout.spec(r),GridLayout.spec(c));
+       // GridLayout.LayoutParams tempParams = new GridLayout.LayoutParams(GridLayout.spec(r),GridLayout.spec(c));
 
-        tempParams.width = (int) getResources().getDisplayMetrics().density*50;
-        tempParams.height = (int) getResources().getDisplayMetrics().density*50;
+       // tempParams.width = (int) getResources().getDisplayMetrics().density*50;
+        //tempParams.height = (int) getResources().getDisplayMetrics().density*50;
 
-        setLayoutParams(tempParams);
+        //setLayoutParams(tempParams);
 
     }
 
