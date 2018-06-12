@@ -74,22 +74,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         iv_01.setTag("0");
         iv_02.setTag("1");
         iv_03.setTag("2");
-        iv_04.setTag("4");
-        iv_05.setTag("5");
-        iv_06.setTag("6");
-        iv_07.setTag("7");
-        iv_08.setTag("8");
-        iv_09.setTag("9");
-        iv_10.setTag("10");
-        iv_11.setTag("11");
-        iv_12.setTag("12");
-        iv_13.setTag("13");
-        iv_14.setTag("14");
-        iv_15.setTag("15");
-        iv_16.setTag("16");
+        iv_04.setTag("3");
+        iv_05.setTag("4");
+        iv_06.setTag("5");
+        iv_07.setTag("6");
+        iv_08.setTag("7");
+        iv_09.setTag("8");
+        iv_10.setTag("9");
+        iv_11.setTag("10");
+        iv_12.setTag("11");
+        iv_13.setTag("12");
+        iv_14.setTag("13");
+        iv_15.setTag("14");
+        iv_16.setTag("15");
 
         //carrega imagens
-        frontofCardResources();
+        frontOfCardResources();
 
         //mistura as imgens
         Collections.shuffle(Arrays.asList(imgarray));
@@ -247,6 +247,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+
+        // ver imagem selecionada e guardar temporariamente
         if(cardNumber == 1){
             firstImage = imgarray[numcard];
             if(firstImage > 200){
@@ -282,33 +284,129 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             iv_16.setEnabled(false);
 
 
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    calculate();
+                }
+            },1000);
 
+        }
+    }
 
+    //se as imagens forem iguais vão desaparecer e contar para o score
+    private void calculate() {
+        if (firstImage == secondImage) {
+            if (clickedFirst == 0) {
+                iv_01.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 1) {
+                iv_02.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 2) {
+                iv_03.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 3) {
+                iv_04.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 4) {
+                iv_05.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 5) {
+                iv_06.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 6) {
+                iv_07.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 7) {
+                iv_08.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 8) {
+                iv_09.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 9) {
+                iv_10.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 10) {
+                iv_11.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 11) {
+                iv_12.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 12) {
+                iv_13.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 13) {
+                iv_14.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 14) {
+                iv_15.setVisibility(View.INVISIBLE);
+            } else if (clickedFirst == 15) {
+                iv_16.setVisibility(View.INVISIBLE);
+            }
 
+            if (clickedSecond == 0) {
+                iv_01.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 1) {
+                iv_02.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 2) {
+                iv_03.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 3) {
+                iv_04.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 4) {
+                iv_05.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 5) {
+                iv_06.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 6) {
+                iv_07.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 7) {
+                iv_08.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 8) {
+                iv_09.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 9) {
+                iv_10.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 10) {
+                iv_11.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 11) {
+                iv_12.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 12) {
+                iv_13.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 13) {
+                iv_14.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 14) {
+                iv_15.setVisibility(View.INVISIBLE);
+            } else if (clickedSecond == 15) {
+                iv_16.setVisibility(View.INVISIBLE);
+            }
+        } else {
+
+            iv_01.setImageResource(R.drawable.botao_question_mark);
+            iv_02.setImageResource(R.drawable.botao_question_mark);
+            iv_03.setImageResource(R.drawable.botao_question_mark);
+            iv_04.setImageResource(R.drawable.botao_question_mark);
+            iv_05.setImageResource(R.drawable.botao_question_mark);
+            iv_06.setImageResource(R.drawable.botao_question_mark);
+            iv_07.setImageResource(R.drawable.botao_question_mark);
+            iv_08.setImageResource(R.drawable.botao_question_mark);
+            iv_09.setImageResource(R.drawable.botao_question_mark);
+            iv_10.setImageResource(R.drawable.botao_question_mark);
+            iv_11.setImageResource(R.drawable.botao_question_mark);
+            iv_12.setImageResource(R.drawable.botao_question_mark);
+            iv_13.setImageResource(R.drawable.botao_question_mark);
+            iv_14.setImageResource(R.drawable.botao_question_mark);
+            iv_15.setImageResource(R.drawable.botao_question_mark);
+            iv_16.setImageResource(R.drawable.botao_question_mark);
 
 
         }
     }
 
-    private void frontofCardResources(){
-        imagem101 = R.drawable.image101;
-        imagem102 = R.drawable.image102;
-        imagem103 = R.drawable.image103;
-        imagem104 = R.drawable.image104;
-        imagem105 = R.drawable.image105;
-        imagem106 = R.drawable.image106;
-        imagem107 = R.drawable.image107;
-        imagem108 = R.drawable.image108;
-        imagem201 = R.drawable.image201;
-        imagem202 = R.drawable.image202;
-        imagem203 = R.drawable.image203;
-        imagem204 = R.drawable.image204;
-        imagem205 = R.drawable.image205;
-        imagem206 = R.drawable.image206;
-        imagem207 = R.drawable.image207;
-        imagem208 = R.drawable.image208;
+        private void frontOfCardResources () {
+            imagem101 = R.drawable.image101;
+            imagem102 = R.drawable.image102;
+            imagem103 = R.drawable.image103;
+            imagem104 = R.drawable.image104;
+            imagem105 = R.drawable.image105;
+            imagem106 = R.drawable.image106;
+            imagem107 = R.drawable.image107;
+            imagem108 = R.drawable.image108;
+            imagem201 = R.drawable.image201;
+            imagem202 = R.drawable.image202;
+            imagem203 = R.drawable.image203;
+            imagem204 = R.drawable.image204;
+            imagem205 = R.drawable.image205;
+            imagem206 = R.drawable.image206;
+            imagem207 = R.drawable.image207;
+            imagem208 = R.drawable.image208;
 
-    }
+        }
 
     @Override
     public void onClick(View v) {
