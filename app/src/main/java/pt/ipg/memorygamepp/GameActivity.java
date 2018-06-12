@@ -20,7 +20,8 @@ import java.util.Random;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final int BUTTONS_MARGIN = 100;
+   // private static final int BUTTONS_MARGIN = 100;
+
     private int numberOfElements;
 
     private MemoryGame[] buttons;

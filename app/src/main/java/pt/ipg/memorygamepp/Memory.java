@@ -10,8 +10,9 @@ public class Memory {
     private boolean isFlipped = false;
     private Drawable back;
 
-    back = AppCompatDrawableManager.get().getDrawable(R.drawable.botao_question_mark);
+    back = AppCompatDrawableManager.getDrawable(R.drawable.botao_question_mark);
 
+    back = AppCompatDrawableManager.get()
     setBackground(back);
 
 
