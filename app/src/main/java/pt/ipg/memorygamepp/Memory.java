@@ -1,7 +1,7 @@
 package pt.ipg.memorygamepp;
 
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.AppCompatDrawableManager;
+
 
 public class Memory {
 
@@ -10,10 +10,7 @@ public class Memory {
     private boolean isFlipped = false;
     private Drawable back;
 
-    back = AppCompatDrawableManager.getDrawable(R.drawable.botao_question_mark);
 
-    back = AppCompatDrawableManager.get()
-    setBackground(back);
 
 
     public boolean isMatched() {
