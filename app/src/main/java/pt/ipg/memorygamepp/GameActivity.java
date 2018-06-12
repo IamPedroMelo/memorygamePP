@@ -32,7 +32,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     Integer[] imgarray = {101,102,103,104,105,106,107,108,201,202,203,204,205,206,207,208};
 
     //imagens atuais
-    int imagem101,imagem102,imagem103,imagem104,imagem105,imagem106,imagem107,imagem108,imagem109,imagem110,imagem111,imagem112,imagem113,imagem114,imagem115,imagem116;
+    int imagem101,imagem102,imagem103,imagem104,imagem105,imagem106,imagem107,imagem108,imagem201,imagem202,imagem203,imagem204,imagem205,imagem206,imagem207,imagem208;
 
     //int firstImage , secondImage;
     //int clickedFirst, clickedSecond;
@@ -66,8 +66,43 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         iv_15 = (ImageView) findViewById(R.id.iv_15);
         iv_16 = (ImageView) findViewById(R.id.iv_16);
 
+        iv_01.setTag("0");
+        iv_02.setTag("1");
+        iv_03.setTag("2");
+        iv_04.setTag("4");
+        iv_05.setTag("5");
+        iv_06.setTag("6");
+        iv_07.setTag("7");
+        iv_08.setTag("8");
+        iv_09.setTag("9");
+        iv_10.setTag("10");
+        iv_11.setTag("11");
+        iv_12.setTag("12");
+        iv_13.setTag("13");
+        iv_14.setTag("14");
+        iv_15.setTag("15");
+        iv_16.setTag("16");
 
 
+    }
+
+    private void frontofCardResources(){
+        imagem101 = R.drawable.image101;
+        imagem102 = R.drawable.image102;
+        imagem103 = R.drawable.image103;
+        imagem104 = R.drawable.image104;
+        imagem105 = R.drawable.image105;
+        imagem106 = R.drawable.image106;
+        imagem107 = R.drawable.image107;
+        imagem108 = R.drawable.image108;
+        imagem201 = R.drawable.image201;
+        imagem202 = R.drawable.image202;
+        imagem203 = R.drawable.image203;
+        imagem204 = R.drawable.image204;
+        imagem205 = R.drawable.image205;
+        imagem206 = R.drawable.image206;
+        imagem207 = R.drawable.image207;
+        imagem208 = R.drawable.image208;
     }
 
     @Override
