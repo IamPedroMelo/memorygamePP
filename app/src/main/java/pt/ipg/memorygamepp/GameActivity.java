@@ -384,8 +384,25 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             iv_15.setImageResource(R.drawable.botao_question_mark);
             iv_16.setImageResource(R.drawable.botao_question_mark);
 
-
         }
+
+        iv_01.setEnabled(true);
+        iv_02.setEnabled(true);
+        iv_03.setEnabled(true);
+        iv_04.setEnabled(true);
+        iv_05.setEnabled(true);
+        iv_06.setEnabled(true);
+        iv_07.setEnabled(true);
+        iv_08.setEnabled(true);
+        iv_09.setEnabled(true);
+        iv_10.setEnabled(true);
+        iv_11.setEnabled(true);
+        iv_12.setEnabled(true);
+        iv_13.setEnabled(true);
+        iv_14.setEnabled(true);
+        iv_15.setEnabled(true);
+        iv_16.setEnabled(true);
+
     }
 
         private void frontOfCardResources () {
