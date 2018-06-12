@@ -39,9 +39,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     //imagens atuais
     int imagem101,imagem102,imagem103,imagem104,imagem105,imagem106,imagem107,imagem108,imagem201,imagem202,imagem203,imagem204,imagem205,imagem206,imagem207,imagem208;
 
-    //int firstImage , secondImage;
+    int firstImage , secondImage;
     //int clickedFirst, clickedSecond;
-    //int cardNumber =1;
+    int cardNumber =1;
 
     int playerScore = 0;
 
@@ -98,100 +98,154 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {
                 int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_01, theImg);
             }
         });
         iv_02.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_02, theImg);
             }
         });
         iv_03.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_03, theImg);
             }
         });
         iv_04.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_04, theImg);
             }
         });
         iv_05.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_05, theImg);
             }
         });
         iv_06.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_06, theImg);
             }
         });
         iv_07.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_07, theImg);
             }
         });
         iv_08.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_08, theImg);
             }
         });
         iv_09.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_09, theImg);
             }
         });
         iv_10.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_10, theImg);
             }
         });
         iv_11.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_11, theImg);
             }
         });
         iv_12.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_12, theImg);
             }
         });
         iv_13.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_13, theImg);
             }
         });
         iv_14.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_14, theImg);
             }
         });
         iv_15.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_15, theImg);
             }
         });
         iv_16.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                int theImg = Integer.parseInt((String)view.getTag());
+                seeImage(iv_16, theImg);
             }
         });
 
 
+    }
+
+    private void seeImage(ImageView img, int numcard){
+        if(imgarray[numcard] == 101){
+            img.setImageResource(imagem101);
+        }else if(imgarray[numcard] == 102){
+            img.setImageResource(imagem102);
+        }else if(imgarray[numcard] == 103){
+            img.setImageResource(imagem103);
+        }else if(imgarray[numcard] == 104){
+            img.setImageResource(imagem104);
+        }else if(imgarray[numcard] == 105){
+            img.setImageResource(imagem105);
+        }else if(imgarray[numcard] == 106){
+            img.setImageResource(imagem106);
+        }else if(imgarray[numcard] == 107){
+            img.setImageResource(imagem107);
+        }else if(imgarray[numcard] == 108){
+            img.setImageResource(imagem108);
+        }else if(imgarray[numcard] == 201){
+            img.setImageResource(imagem201);
+        }else if(imgarray[numcard] == 202){
+            img.setImageResource(imagem202);
+        }else if(imgarray[numcard] == 203){
+            img.setImageResource(imagem203);
+        }else if(imgarray[numcard] == 204){
+            img.setImageResource(imagem204);
+        }else if(imgarray[numcard] == 205){
+            img.setImageResource(imagem205);
+        }else if(imgarray[numcard] == 206){
+            img.setImageResource(imagem206);
+        }else if(imgarray[numcard] == 207){
+            img.setImageResource(imagem207);
+        }else if (imgarray[numcard] == 208){
+            img.setImageResource(imagem208);
+
+
+        }
     }
 
     private void frontofCardResources(){
