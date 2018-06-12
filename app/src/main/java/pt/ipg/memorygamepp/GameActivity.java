@@ -40,7 +40,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     int imagem101,imagem102,imagem103,imagem104,imagem105,imagem106,imagem107,imagem108,imagem201,imagem202,imagem203,imagem204,imagem205,imagem206,imagem207,imagem208;
 
     int firstImage , secondImage;
-    //int clickedFirst, clickedSecond;
+    int clickedFirst, clickedSecond;
     int cardNumber =1;
 
     int playerScore = 0;
@@ -210,39 +210,81 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void seeImage(ImageView img, int numcard){
+    private void seeImage(ImageView iv, int numcard){
         if(imgarray[numcard] == 101){
-            img.setImageResource(imagem101);
+            iv.setImageResource(imagem101);
         }else if(imgarray[numcard] == 102){
-            img.setImageResource(imagem102);
+            iv.setImageResource(imagem102);
         }else if(imgarray[numcard] == 103){
-            img.setImageResource(imagem103);
+            iv.setImageResource(imagem103);
         }else if(imgarray[numcard] == 104){
-            img.setImageResource(imagem104);
+            iv.setImageResource(imagem104);
         }else if(imgarray[numcard] == 105){
-            img.setImageResource(imagem105);
+            iv.setImageResource(imagem105);
         }else if(imgarray[numcard] == 106){
-            img.setImageResource(imagem106);
+            iv.setImageResource(imagem106);
         }else if(imgarray[numcard] == 107){
-            img.setImageResource(imagem107);
+            iv.setImageResource(imagem107);
         }else if(imgarray[numcard] == 108){
-            img.setImageResource(imagem108);
+            iv.setImageResource(imagem108);
         }else if(imgarray[numcard] == 201){
-            img.setImageResource(imagem201);
+            iv.setImageResource(imagem201);
         }else if(imgarray[numcard] == 202){
-            img.setImageResource(imagem202);
+            iv.setImageResource(imagem202);
         }else if(imgarray[numcard] == 203){
-            img.setImageResource(imagem203);
+            iv.setImageResource(imagem203);
         }else if(imgarray[numcard] == 204){
-            img.setImageResource(imagem204);
+            iv.setImageResource(imagem204);
         }else if(imgarray[numcard] == 205){
-            img.setImageResource(imagem205);
+            iv.setImageResource(imagem205);
         }else if(imgarray[numcard] == 206){
-            img.setImageResource(imagem206);
+            iv.setImageResource(imagem206);
         }else if(imgarray[numcard] == 207){
-            img.setImageResource(imagem207);
+            iv.setImageResource(imagem207);
         }else if (imgarray[numcard] == 208){
-            img.setImageResource(imagem208);
+            iv.setImageResource(imagem208);
+
+
+        }
+
+        if(cardNumber == 1){
+            firstImage = imgarray[numcard];
+            if(firstImage > 200){
+                firstImage = firstImage-100;
+            }
+            cardNumber = 2;
+            clickedFirst = numcard;
+
+            iv.setEnabled(false);
+        } else if(cardNumber ==2){
+            secondImage = imgarray[numcard];
+            if(secondImage > 200){
+                secondImage = secondImage-100;
+            }
+            cardNumber = 1;
+            clickedSecond = numcard;
+
+            iv_01.setEnabled(false);
+            iv_02.setEnabled(false);
+            iv_03.setEnabled(false);
+            iv_04.setEnabled(false);
+            iv_05.setEnabled(false);
+            iv_06.setEnabled(false);
+            iv_07.setEnabled(false);
+            iv_08.setEnabled(false);
+            iv_09.setEnabled(false);
+            iv_10.setEnabled(false);
+            iv_11.setEnabled(false);
+            iv_12.setEnabled(false);
+            iv_13.setEnabled(false);
+            iv_14.setEnabled(false);
+            iv_15.setEnabled(false);
+            iv_16.setEnabled(false);
+
+
+
+
+
 
 
         }
