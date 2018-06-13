@@ -367,22 +367,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         } else {
 
-            iv_01.setImageResource(R.drawable.botao_question_mark);
-            iv_02.setImageResource(R.drawable.botao_question_mark);
-            iv_03.setImageResource(R.drawable.botao_question_mark);
-            iv_04.setImageResource(R.drawable.botao_question_mark);
-            iv_05.setImageResource(R.drawable.botao_question_mark);
-            iv_06.setImageResource(R.drawable.botao_question_mark);
-            iv_07.setImageResource(R.drawable.botao_question_mark);
-            iv_08.setImageResource(R.drawable.botao_question_mark);
-            iv_09.setImageResource(R.drawable.botao_question_mark);
-            iv_10.setImageResource(R.drawable.botao_question_mark);
-            iv_11.setImageResource(R.drawable.botao_question_mark);
-            iv_12.setImageResource(R.drawable.botao_question_mark);
-            iv_13.setImageResource(R.drawable.botao_question_mark);
-            iv_14.setImageResource(R.drawable.botao_question_mark);
-            iv_15.setImageResource(R.drawable.botao_question_mark);
-            iv_16.setImageResource(R.drawable.botao_question_mark);
+            iv_01.setImageResource(R.drawable.image_question_mark);
+            iv_02.setImageResource(R.drawable.image_question_mark);
+            iv_03.setImageResource(R.drawable.image_question_mark);
+            iv_04.setImageResource(R.drawable.image_question_mark);
+            iv_05.setImageResource(R.drawable.image_question_mark);
+            iv_06.setImageResource(R.drawable.image_question_mark);
+            iv_07.setImageResource(R.drawable.image_question_mark);
+            iv_08.setImageResource(R.drawable.image_question_mark);
+            iv_09.setImageResource(R.drawable.image_question_mark);
+            iv_10.setImageResource(R.drawable.image_question_mark);
+            iv_11.setImageResource(R.drawable.image_question_mark);
+            iv_12.setImageResource(R.drawable.image_question_mark);
+            iv_13.setImageResource(R.drawable.image_question_mark);
+            iv_14.setImageResource(R.drawable.image_question_mark);
+            iv_15.setImageResource(R.drawable.image_question_mark);
+            iv_16.setImageResource(R.drawable.image_question_mark);
 
         }
 

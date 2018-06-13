@@ -12,7 +12,7 @@
     <GridLayout
         android:id="@+id/grid_layout_4x4"
         android:layout_width="340dp"
-        android:layout_height="348dp"
+        android:layout_height="335dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -30,115 +30,115 @@
 
         <ImageView
             android:id="@+id/iv_01"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_02"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_03"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_04"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_05"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_06"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_07"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_08"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_09"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_10"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_11"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_12"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_13"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_14"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_15"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
 
         <ImageView
             android:id="@+id/iv_16"
-            android:scaleType="centerInside"
-            android:src="@drawable/botao_question_mark"
             android:layout_width="84dp"
-            android:layout_height="84dp" />
+            android:layout_height="84dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_question_mark" />
     </GridLayout>
 
     <TextView
