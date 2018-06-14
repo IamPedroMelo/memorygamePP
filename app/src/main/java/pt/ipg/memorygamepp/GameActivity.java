@@ -31,6 +31,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button[][] button = new Button[4][4];
 
+    TextView tv_01;
 
     ImageView iv_01,iv_02,iv_03,iv_04,iv_05,iv_06,iv_07,iv_08,iv_09,iv_10,iv_11,iv_12,iv_13,iv_14,iv_15,iv_16;
 
@@ -54,6 +55,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_game);
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
+
+        tv_01 = findViewById(R.id.textViewPontuacao);
 
         iv_01 = (ImageView) findViewById(R.id.iv_01);
         iv_02 = (ImageView) findViewById(R.id.iv_02);
@@ -366,7 +369,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             } else if (clickedSecond == 15) {
                 iv_16.setVisibility(View.INVISIBLE);
             }
+
+            playerScore = playerScore +10;
+            tv_01.setText(playerScore+" POINTS");
+
+
+
         } else {
+
+
 
             iv_01.setImageResource(R.drawable.image_question_mark);
             iv_02.setImageResource(R.drawable.image_question_mark);
