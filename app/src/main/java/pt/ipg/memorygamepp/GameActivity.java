@@ -92,6 +92,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         iv_15.setTag("14");
         iv_16.setTag("15");
 
+        tv_01.setText(playerScore+" POINTS");
+
         //carrega imagens
         frontOfCardResources();
 
@@ -377,7 +379,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         } else {
 
-
+            if(playerScore>=5){
+                playerScore=playerScore-5;
+                tv_01.setText(playerScore+" POINTS");
+            }
 
             iv_01.setImageResource(R.drawable.image_question_mark);
             iv_02.setImageResource(R.drawable.image_question_mark);
