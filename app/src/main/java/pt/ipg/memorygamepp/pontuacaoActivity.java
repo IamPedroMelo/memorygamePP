@@ -18,4 +18,9 @@ public class pontuacaoActivity extends AppCompatActivity {
 
     }
 
+    public void VoltaMenu(View view) {
+    }
+
+    public void Sair(View view) {
+    }
 }
