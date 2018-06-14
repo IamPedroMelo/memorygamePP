@@ -11,19 +11,21 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="289dp"
-        android:layout_height="52dp"
+        android:layout_width="368dp"
+        android:layout_height="109dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="420dp"
-        android:autoSizeTextType="uniform"
-        android:background="#fefefe"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button"
         android:text="O Jogo da memória consiste em num baralho virado ao contrário conseguir encontrar 2 pares, sempre que falhar as cartas viram ao contrário outra vez."
-        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,8 +47,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintHorizontal_bias="0.088"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.129" />
+        app:layout_constraintVertical_bias="0.939" />
 </android.support.constraint.ConstraintLayout>

@@ -1,6 +1,7 @@
 package pt.ipg.memorygamepp;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
@@ -51,8 +52,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         iv_01 = (ImageView) findViewById(R.id.iv_01);
         iv_02 = (ImageView) findViewById(R.id.iv_02);
@@ -427,6 +428,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+
+    }
+
+    public void Sair(View view) {
+        Intent intent = new Intent(this,menuActivity.class);
+        startActivity(intent);
 
     }
 }
