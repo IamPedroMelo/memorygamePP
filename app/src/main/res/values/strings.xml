@@ -5,4 +5,8 @@
     <string name="title_activity_help">helpActivity</string>
     <string name="title_activity_pontuacao">pontuacaoActivity</string>
     <string name="title_activity_game">gameActivity</string>
+    <string name="nao_tem_caracteres">Está vazio</string>
+    <string name="ok">Ok</string>
+    <string name="tem_espaços">Têm espaços</string>
+    <string name="muito_grande">Têm de ter menos de 16 caracteres</string>
 </resources>

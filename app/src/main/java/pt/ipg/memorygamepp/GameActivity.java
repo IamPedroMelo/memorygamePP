@@ -37,17 +37,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView tv_01, tv_02;
 
-    ImageView iv_01,iv_02,iv_03,iv_04,iv_05,iv_06,iv_07,iv_08,iv_09,iv_10,iv_11,iv_12,iv_13,iv_14,iv_15,iv_16;
+    ImageView iv_01, iv_02, iv_03, iv_04, iv_05, iv_06, iv_07, iv_08, iv_09, iv_10, iv_11, iv_12, iv_13, iv_14, iv_15, iv_16;
 
     //array das imagens
-    Integer[] imgarray = {101,102,103,104,105,106,107,108,201,202,203,204,205,206,207,208};
+    Integer[] imgarray = {101, 102, 103, 104, 105, 106, 107, 108, 201, 202, 203, 204, 205, 206, 207, 208};
 
     //imagens atuais
-    int imagem101,imagem102,imagem103,imagem104,imagem105,imagem106,imagem107,imagem108,imagem201,imagem202,imagem203,imagem204,imagem205,imagem206,imagem207,imagem208;
+    int imagem101, imagem102, imagem103, imagem104, imagem105, imagem106, imagem107, imagem108, imagem201, imagem202, imagem203, imagem204, imagem205, imagem206, imagem207, imagem208;
 
-    int firstImage , secondImage;
+    int firstImage, secondImage;
     int clickedFirst, clickedSecond;
-    int cardNumber =1;
+    int cardNumber = 1;
     private String username;
 
     int playerScore = 0;
@@ -58,10 +58,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-
 
         tv_01 = findViewById(R.id.textViewPontuacao);
         tv_02 = findViewById(R.id.textViewUsername);
@@ -83,29 +79,37 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         iv_15 = (ImageView) findViewById(R.id.iv_15);
         iv_16 = (ImageView) findViewById(R.id.iv_16);
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        final AlertDialog alertDialog = new AlertDialog.Builder(GameActivity.this).create();
+        alertDialog.setMessage("Insira o seu username");
 
-        alert.setTitle("Utilizador");
-        alert.setMessage("Escolha o seu nome de utilizador");
+        final EditText input = new EditText(GameActivity.this);
+        alertDialog.setView(input);
 
-        // usar edit text para obter user input
-        final EditText input = new EditText(this);
-        alert.setView(input);
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.ok),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
 
-        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-               // String username = input.getText().toString();
-                tv_02.setText(input.getText().toString());
-
+                    }
+                });
+        alertDialog.show();
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean wantToCloseDialog = false;
+                if ((input.getText().toString().length())>15){
+                    input.setError(getString(R.string.muito_grande));
+                } else if(input.getText().toString().compareTo("") == 0) {
+                    input.setError(getString(R.string.nao_tem_caracteres));
+                } else if (input.getText().toString().contains(" ")) {
+                    input.setError(getString(R.string.tem_espaços));
+                } else {
+                    tv_02.setText(input.getText().toString());
+                    wantToCloseDialog = true;
+                }
+                if (wantToCloseDialog)
+                    alertDialog.dismiss();
             }
         });
-        alert.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                finish();
-            }
-        });
-
-        alert.show();
 
 
         iv_01.setTag("0");
@@ -485,13 +489,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         final AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
         builder.setMessage("Se desistir perde o seu progresso! Têm a certeza que quer sair?");
         builder.setCancelable(true);
-        builder.setNegativeButton("Não!", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
-        builder.setPositiveButton("Desistir!", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Desistir", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
