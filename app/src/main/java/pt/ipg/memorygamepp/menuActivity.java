@@ -76,7 +76,6 @@ public class menuActivity extends AppCompatActivity {
 
     public void Sair(View view) {
         finish();
-        //System.exit(0);
     }
 
     public void MudaActivityPontuacao(View view) {

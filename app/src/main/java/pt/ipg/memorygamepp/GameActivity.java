@@ -453,7 +453,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         final AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
         builder.setMessage("Se desistir perde o seu progresso! Têm a certeza que quer sair?");
         builder.setCancelable(true);
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Não!", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();

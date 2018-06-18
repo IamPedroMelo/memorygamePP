@@ -20,7 +20,6 @@ public class helpActivity extends AppCompatActivity {
     }
 
     public void VoltaMenu(View view) {
-        Intent intent = new Intent(this,menuActivity.class);
-        startActivity(intent);
+        finish();
     }
 }
