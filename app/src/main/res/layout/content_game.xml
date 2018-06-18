@@ -150,7 +150,7 @@
         android:layout_marginStart="8dp"
         android:background="@drawable/rounded_button"
         android:hint="username"
-        android:paddingBottom="13dp"
+        android:paddingTop="10dp"
         android:textAlignment="center"
         android:textColor="@android:color/holo_orange_light"
         android:textSize="40dp"
