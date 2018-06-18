@@ -15,11 +15,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -33,7 +35,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button[][] button = new Button[4][4];
 
-    TextView tv_01;
+    TextView tv_01, tv_02;
 
     ImageView iv_01,iv_02,iv_03,iv_04,iv_05,iv_06,iv_07,iv_08,iv_09,iv_10,iv_11,iv_12,iv_13,iv_14,iv_15,iv_16;
 
@@ -46,6 +48,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     int firstImage , secondImage;
     int clickedFirst, clickedSecond;
     int cardNumber =1;
+    private String username;
 
     int playerScore = 0;
 
@@ -58,7 +61,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
+
+
         tv_01 = findViewById(R.id.textViewPontuacao);
+        tv_02 = findViewById(R.id.textViewUsername);
 
         iv_01 = (ImageView) findViewById(R.id.iv_01);
         iv_02 = (ImageView) findViewById(R.id.iv_02);
@@ -76,6 +82,31 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         iv_14 = (ImageView) findViewById(R.id.iv_14);
         iv_15 = (ImageView) findViewById(R.id.iv_15);
         iv_16 = (ImageView) findViewById(R.id.iv_16);
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        alert.setTitle("Utilizador");
+        alert.setMessage("Escolha o seu nome de utilizador");
+
+        // usar edit text para obter user input
+        final EditText input = new EditText(this);
+        alert.setView(input);
+
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+               // String username = input.getText().toString();
+                tv_02.setText(input.getText().toString());
+
+            }
+        });
+        alert.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                finish();
+            }
+        });
+
+        alert.show();
+
 
         iv_01.setTag("0");
         iv_02.setTag("1");
@@ -423,6 +454,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         iv_16.setEnabled(true);
 
     }
+
 
         private void frontOfCardResources () {
             imagem101 = R.drawable.image101;

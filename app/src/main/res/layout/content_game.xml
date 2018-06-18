@@ -143,15 +143,17 @@
     </GridLayout>
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/textViewUsername"
         android:layout_width="0dp"
         android:layout_height="61dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/rounded_button"
         android:hint="username"
+        android:textAlignment="center"
+        android:paddingBottom="13dp"
         android:textColor="@android:color/holo_orange_light"
-        android:textSize="20dp"
+        android:textSize="40dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView19"
         app:layout_constraintEnd_toEndOf="parent"
@@ -174,7 +176,7 @@
         app:layout_constraintBottom_toTopOf="@+id/grid_layout_4x4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewPontuacao"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUsername" />
 
     <TextView
         android:id="@+id/textViewPontuacao"
@@ -193,7 +195,7 @@
         app:layout_constraintBottom_toTopOf="@+id/grid_layout_4x4"
         app:layout_constraintEnd_toStartOf="@+id/textView19"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUsername"
         app:layout_constraintVertical_bias="0.423" />
 
 </android.support.constraint.ConstraintLayout>
