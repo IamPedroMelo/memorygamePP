@@ -1,6 +1,7 @@
 package pt.ipg.memorygamepp;
 
 import android.annotation.TargetApi;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Build;
@@ -9,6 +10,7 @@ import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -448,8 +450,23 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void Sair(View view) {
-        Intent intent = new Intent(this,menuActivity.class);
-        startActivity(intent);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+        builder.setMessage("Se desistir perde o seu progresso! Têm a certeza que quer sair?");
+        builder.setCancelable(true);
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.setPositiveButton("Desistir!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
 
     }
 }
