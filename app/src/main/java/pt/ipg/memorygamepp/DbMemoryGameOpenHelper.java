@@ -21,7 +21,7 @@ public class DbMemoryGameOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        Context appContext = getContext();
+        //Context appContext = getContext();
 
         DbTableUsers dbTableUsers = new DbTableUsers(db);
         dbTableUsers.create();
@@ -37,7 +37,7 @@ public class DbMemoryGameOpenHelper extends SQLiteOpenHelper {
     }
 
 
-    public Context getContext() {
-        return InstrumentationRegistry.getTargetContext();
-    }
+    //public Context getContext() {
+    //    return InstrumentationRegistry.getTargetContext();
+    //}
 }

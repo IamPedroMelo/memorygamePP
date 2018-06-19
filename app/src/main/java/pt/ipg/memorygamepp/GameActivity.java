@@ -474,8 +474,50 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         iv_15.setEnabled(true);
         iv_16.setEnabled(true);
 
+        checkEnd();
     }
 
+        private void checkEnd(){
+            if (iv_01.getVisibility() == View.INVISIBLE &&
+                    iv_02.getVisibility() == View.INVISIBLE &&
+                    iv_03.getVisibility() == View.INVISIBLE &&
+                    iv_04.getVisibility() == View.INVISIBLE &&
+                    iv_05.getVisibility() == View.INVISIBLE &&
+                    iv_06.getVisibility() == View.INVISIBLE &&
+                    iv_07.getVisibility() == View.INVISIBLE &&
+                    iv_08.getVisibility() == View.INVISIBLE &&
+                    iv_09.getVisibility() == View.INVISIBLE &&
+                    iv_10.getVisibility() == View.INVISIBLE &&
+                    iv_11.getVisibility() == View.INVISIBLE &&
+                    iv_12.getVisibility() == View.INVISIBLE &&
+                    iv_13.getVisibility() == View.INVISIBLE &&
+                    iv_14.getVisibility() == View.INVISIBLE &&
+                    iv_15.getVisibility() == View.INVISIBLE &&
+                    iv_16.getVisibility() == View.INVISIBLE) {
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(GameActivity.this);
+                alertDialogBuilder
+                        .setMessage("Parabéns, a sua pontuação final é: "+playerScore)
+                        .setCancelable(false)
+                        .setPositiveButton("Novo Jogo", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(getApplicationContext(),GameActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                               finish();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+
+            }
+        }
 
         private void frontOfCardResources () {
             imagem101 = R.drawable.image101;
@@ -496,6 +538,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             imagem208 = R.drawable.image208;
 
         }
+
 
     @Override
     public void onClick(View v) {
