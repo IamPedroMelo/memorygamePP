@@ -87,9 +87,8 @@ public class memorygametest {
 
     @Test
     public void HighscoresCRUDTest(){
-        Context appContext = getContext();
 
-        DbMemoryGameOpenHelper dbMemoryGameOpenHelper = new DbMemoryGameOpenHelper(appContext);
+        DbMemoryGameOpenHelper dbMemoryGameOpenHelper = new DbMemoryGameOpenHelper(getContext());
         SQLiteDatabase db = dbMemoryGameOpenHelper.getReadableDatabase();
 
         DbTableUsers TableUsers = new DbTableUsers(db);
@@ -112,14 +111,14 @@ public class memorygametest {
         //Read-CRUD
         highScores = ReadFirstHighScores(TableHighscores,50,UserId,id);
 
+        //Update-CRUD
 
     }
 
 
-    private HighScores ReadFirstHighScores(DbTableHighScores tableHighscores, int expectedscore,long useridesperado,
-                                           long idesperado) {
+    private HighScores ReadFirstHighScores(DbTableHighScores tableHighscores, long expectedscore,long useridesperado, long idesperado) {
         Cursor cursor = tableHighscores.query(DbTableHighScores.ALL_COLUMNS,null,null,null,null,null);
-        assertEquals("Falhou a ler o highscore",cursor.getCount());
+        assertEquals("Falhou a ler o highscore",1,cursor.getCount());
 
         assertTrue("falhou a ler os highscores",cursor.moveToNext());
 

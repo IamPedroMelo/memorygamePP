@@ -30,8 +30,9 @@ public class DbTableHighScores implements BaseColumns{
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         FIELD_SCORE + " INTEGER," +
                         FIELD_USER_ID + " INTEGER," +
-                        "FOREIGN KEY(" + FIELD_USER_ID + ") REFERENCES " +
-                        TABLE_NAME + "(" + DbTableUsers._ID +")" +
+                        "FOREIGN KEY (" + FIELD_USER_ID + ") REFERENCES " +
+                         DbTableUsers.TABLE_NAME +
+                         "(" + DbTableUsers._ID +")" +
                         ")"
 
 
