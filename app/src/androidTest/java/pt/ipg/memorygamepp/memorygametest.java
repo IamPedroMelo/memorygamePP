@@ -80,16 +80,60 @@ public class memorygametest {
 
         assertEquals("Falhou a apagar o user",1,rowsAffected);
 
-        Cursor cursor = TableUsers.query(DbTableUsers.ALL_COUMNS,null,null,null,null,null);
+        Cursor cursor = TableUsers.query(DbTableUsers.ALL_COLUMNS,null,null,null,null,null);
         assertEquals("Users encontrados depois do delete??",0,cursor.getCount());
 
+    }
+
+    @Test
+    public void HighscoresCRUDTest(){
+        Context appContext = getContext();
+
+        DbMemoryGameOpenHelper dbMemoryGameOpenHelper = new DbMemoryGameOpenHelper(appContext);
+        SQLiteDatabase db = dbMemoryGameOpenHelper.getReadableDatabase();
+
+        DbTableUsers TableUsers = new DbTableUsers(db);
+        DbTableHighScores TableHighscores = new DbTableHighScores(db);
+
+        Users user = new Users();
+        user.setUsername("Pedro");
+        long UserId = TableUsers.insert(DbTableUsers.getContentValues(user));
+
+        assertNotEquals("Falhou a inserir um user",-1,UserId);
+
+        //Create - CRUD
+        HighScores highScores = new HighScores();
+
+        highScores.setScore(50);
+        highScores.setUserId((int) UserId);
+        long id = TableHighscores.insert(DbTableHighScores.getContentValues(highScores));
+        assertNotEquals("Falhou a inserir os highScores",-1,id);
+        
+        //Read-CRUD
+        highScores = ReadFirstHighScores(TableHighscores,50,UserId,id);
 
 
     }
 
+
+    private HighScores ReadFirstHighScores(DbTableHighScores tableHighscores, int expectedscore,long useridesperado,
+                                           long idesperado) {
+        Cursor cursor = tableHighscores.query(DbTableHighScores.ALL_COLUMNS,null,null,null,null,null);
+        assertEquals("Falhou a ler o highscore",cursor.getCount());
+
+        assertTrue("falhou a ler os highscores",cursor.moveToNext());
+
+        HighScores highscores = DbTableHighScores.getCurrentHighScoresFromCursor(cursor);
+        assertEquals("Score incorreto",expectedscore,highscores.getScore());
+        assertEquals("score userid incorreto",useridesperado,highscores.getUserId());
+        assertEquals("Score id",idesperado,highscores.getId());
+        return highscores;
+    }
+
+
     @NonNull
     private Users ReadFirstUser(DbTableUsers TableUsers, String usernameesperado, long idesperado) {
-        Cursor cursor = TableUsers.query(DbTableUsers.ALL_COUMNS, null,null,null,null,null);
+        Cursor cursor = TableUsers.query(DbTableUsers.ALL_COLUMNS, null,null,null,null,null);
         assertEquals("Falhou a leitura",1,cursor.getCount());
 
         assertTrue("Falhou a ler o primeiro user",cursor.moveToNext());
