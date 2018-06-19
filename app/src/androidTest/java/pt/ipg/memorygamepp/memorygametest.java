@@ -9,9 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.security.AccessControlContext;
-
-import static java.security.AccessController.getContext;
 import static org.junit.Assert.*;
 
 /**
@@ -24,18 +21,24 @@ public class memorygametest {
 
     @Before
     public void setUp(){
-        //getContext().deleteDatabase(DbMemoryGameOpenHelper.DATABASE_NAME);
+        getContext().deleteDatabase(DbMemoryGameOpenHelper.DATABASE_NAME);
     }
 
     @Test
     public void useAppContext() {
-        // Context of the app under test.
-        AccessControlContext appContext = getContext();
+        //Context of the app under test.
+        Context appContext = getContext();
 
-        //DbMemoryGameOpenHelper dbMemoryGameOpenHelper = new DbMemoryGameOpenHelper(appContext);
-        //SQLiteDatabase db = dbMemoryGameOpenHelper.getReadableDatabase();
+        DbMemoryGameOpenHelper dbMemoryGameOpenHelper = new DbMemoryGameOpenHelper(appContext);
+        SQLiteDatabase db = dbMemoryGameOpenHelper.getReadableDatabase();
 
-        //assertTrue("Não conseguiu abrir/criar a base de dados",db.isOpen());
+        assertTrue("Não conseguiu abrir a Base de Dados",db.isOpen());
+        db.close();
 
+    }
+
+
+    public Context getContext() {
+        return InstrumentationRegistry.getTargetContext();
     }
 }
