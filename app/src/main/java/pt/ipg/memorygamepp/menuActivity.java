@@ -67,7 +67,11 @@ public class menuActivity extends AppCompatActivity {
 
     }*/
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
     public void MudaActivityAjuda(View view) {
         Intent intent = new Intent(this,helpActivity.class);

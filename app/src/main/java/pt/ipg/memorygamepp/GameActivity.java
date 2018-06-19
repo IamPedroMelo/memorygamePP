@@ -14,6 +14,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Display;
+import android.view.KeyEvent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
@@ -53,6 +54,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     int playerScore = 0;
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
     @android.support.annotation.RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +85,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         iv_15 = (ImageView) findViewById(R.id.iv_15);
         iv_16 = (ImageView) findViewById(R.id.iv_16);
 
+
+
         final AlertDialog alertDialog = new AlertDialog.Builder(GameActivity.this).create();
         alertDialog.setMessage("Insira o seu username");
 
@@ -92,6 +100,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
         alertDialog.show();
+        alertDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                if(keyCode==KeyEvent.KEYCODE_BACK){
+                    finish();
+                }
+                return true;
+            }
+        });
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

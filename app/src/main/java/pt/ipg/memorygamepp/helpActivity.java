@@ -22,4 +22,10 @@ public class helpActivity extends AppCompatActivity {
     public void VoltaMenu(View view) {
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
