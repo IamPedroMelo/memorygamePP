@@ -13,10 +13,10 @@ public class DbTableHighScores implements BaseColumns{
 
     public static final String TABLENAME = "HighScores";
     public static final String FIELD_SCORE1 = "score1";
-    public static final String FIELD_SCORE2 = "score1";
-    public static final String FIELD_SCORE3 = "score1";
-    public static final String FIELD_SCORE4 = "score1";
-    public static final String FIELD_SCORE5 = "score1";
+    public static final String FIELD_SCORE2 = "score2";
+    public static final String FIELD_SCORE3 = "score3";
+    public static final String FIELD_SCORE4 = "score4";
+    public static final String FIELD_SCORE5 = "score5";
     public static final String FIELD_USER_ID = "userId";
 
     private final SQLiteDatabase db;
