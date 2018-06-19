@@ -1,8 +1,11 @@
 package pt.ipg.memorygamepp;
 
+import android.app.Instrumentation;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.security.AccessControlContext;
 
 public class DbMemoryGameOpenHelper extends SQLiteOpenHelper {
 
@@ -17,6 +20,9 @@ public class DbMemoryGameOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        Context appContext = getContext();
+
         DbTableUsers dbTableUsers = new DbTableUsers(db);
         dbTableUsers.create();
 
@@ -28,5 +34,10 @@ public class DbMemoryGameOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+
+    public Context getContext() {
+        return InstrumentationRegistry.getTargetContext();
     }
 }
