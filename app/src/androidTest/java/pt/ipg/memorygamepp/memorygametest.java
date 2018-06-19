@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresPermission;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -59,7 +60,31 @@ public class memorygametest {
         //Read-CRUD
         user = ReadFirstUser(TableUsers,"JoaquimAbilio",id);
 
-        
+        //Update-CRUD
+        user.setUsername("Slade");
+        int rowsAffected = TableUsers.update(
+                DbTableUsers.getContentValues(user),
+                DbTableUsers._ID + "=?",
+                new String[]{ Long.toString(id)}
+        );
+
+        assertEquals("Falhou a dar o update do user",1,rowsAffected);
+
+        user = ReadFirstUser(TableUsers,"Slade",id);
+
+        //Delete- Crud
+        rowsAffected = TableUsers.delete(
+                DbTableUsers._ID + "=?",
+                new String[]{Long.toString(id)}
+        );
+
+        assertEquals("Falhou a apagar o user",1,rowsAffected);
+
+        Cursor cursor = TableUsers.query(DbTableUsers.ALL_COUMNS,null,null,null,null,null);
+        assertEquals("Users encontrados depois do delete??",0,cursor.getCount());
+
+
+
     }
 
     @NonNull
