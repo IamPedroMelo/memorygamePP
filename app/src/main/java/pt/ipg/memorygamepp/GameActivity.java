@@ -103,6 +103,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         final EditText input = new EditText(GameActivity.this);
         alertDialog.setView(input);
+        alertDialog.setCanceledOnTouchOutside(false);
 
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.ok),
                 new DialogInterface.OnClickListener() {
@@ -110,7 +111,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
                 });
-        alertDialog.show();
         alertDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
             @Override
             public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
@@ -120,6 +120,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 return true;
             }
         });
+        alertDialog.show();
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -445,6 +446,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         });
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
+                alertDialog.setCanceledOnTouchOutside(false);
 
             }
         }
@@ -493,6 +495,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+        //alertDialog.setCanceledOnTouchOutside(false);
 
     }
 }
