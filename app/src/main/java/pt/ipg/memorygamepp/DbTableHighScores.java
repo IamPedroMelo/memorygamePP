@@ -5,13 +5,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
-import static pt.ipg.memorygamepp.DbTableUsers.TABLE_NAME;
 
 
 public class DbTableHighScores implements BaseColumns{
 
 
-    public static final String TABLENAME = "HighScores";
+    public static final String TABLE_NAME = "HighScores";
     public static final String FIELD_SCORE = "score";
     public static final String FIELD_USER_ID = "userId";
 
@@ -26,7 +25,7 @@ public class DbTableHighScores implements BaseColumns{
 
     public void create() {
         db.execSQL(
-                "CREATE TABLE " + TABLENAME + "(" +
+                "CREATE TABLE " + TABLE_NAME + "(" +
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         FIELD_SCORE + " INTEGER," +
                         FIELD_USER_ID + " INTEGER," +
@@ -66,7 +65,7 @@ public class DbTableHighScores implements BaseColumns{
     }
 
     public long insert(ContentValues values){
-        return db.insert(TABLENAME,null,values);
+        return db.insert(TABLE_NAME,null,values);
     }
 
     public int update(ContentValues values, String whereClause, String[] whereArgs){

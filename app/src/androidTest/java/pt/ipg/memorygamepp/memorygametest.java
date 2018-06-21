@@ -112,6 +112,15 @@ public class memorygametest {
         highScores = ReadFirstHighScores(TableHighscores,50,UserId,id);
 
         //Update-CRUD
+        highScores.setScore(70);
+        int rowsAffected = TableHighscores.update(
+                DbTableHighScores.getContentValues(highScores),
+                DbTableHighScores._ID + "=?",
+                new String[]{Long.toString(id)}
+        );
+        assertEquals("Falhou a dar update no socre",1,rowsAffected);
+
+        //query/read R - CRUD
 
     }
 
