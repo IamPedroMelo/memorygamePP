@@ -122,6 +122,19 @@ public class memorygametest {
 
         //query/read R - CRUD
 
+        highScores = ReadFirstHighScores(TableHighscores, 70,UserId,id);
+
+        //delete-CRUD
+
+        rowsAffected = TableHighscores.delete(
+                DbTableHighScores._ID + "=?",
+                new String[]{Long.toString(id)}
+        );
+        assertEquals("Falhou a apagar",1,rowsAffected);
+
+        Cursor cursor = TableHighscores.query(DbTableHighScores.ALL_COLUMNS, null, null,null,null,null );
+        assertEquals("Scores encontrados depois do delete?",0,cursor.getCount());
+
     }
 
 
