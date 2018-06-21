@@ -2,6 +2,7 @@ package pt.ipg.memorygamepp;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -10,6 +11,15 @@ import android.support.annotation.Nullable;
 public class MemoryGameContentProvider extends ContentProvider{
 
     DbMemoryGameOpenHelper dbMemoryGameOpenHelper;
+
+   // private static UriMatcher getHighscoresUriMatcher(){
+
+        //UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+
+        //uriMatcher.addURI("pt.ipg.memorygamepp","highscores");
+
+    //}
+
 
     @Override
     public boolean onCreate() {

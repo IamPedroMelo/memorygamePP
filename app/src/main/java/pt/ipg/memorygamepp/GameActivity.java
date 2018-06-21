@@ -38,10 +38,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView tv_01, tv_02;
 
-    ImageView iv_01, iv_02, iv_03, iv_04, iv_05, iv_06, iv_07, iv_08, iv_09, iv_10, iv_11, iv_12, iv_13, iv_14, iv_15, iv_16;
+    //ImageView iv_01, iv_02, iv_03, iv_04, iv_05, iv_06, iv_07, iv_08, iv_09, iv_10, iv_11, iv_12, iv_13, iv_14, iv_15, iv_16;
+    ImageView iv [][] = new ImageView[4][4];
+
 
     //array das imagens
-    Integer[] imgarray = {101, 102, 103, 104, 105, 106, 107, 108, 201, 202, 203, 204, 205, 206, 207, 208};
+    //Integer[] imgarray = {101, 102, 103, 104, 105, 106, 107, 108, 201, 202, 203, 204, 205, 206, 207, 208};
+    int[][] imagens = new int[][] {
+        {101, 102, 103, 104},
+        {105, 106, 107, 108},
+        {101, 102, 103, 104},
+        {105, 106, 107, 108}
+    };
 
     //imagens atuais
     int imagem101, imagem102, imagem103, imagem104, imagem105, imagem106, imagem107, imagem108, imagem201, imagem202, imagem203, imagem204, imagem205, imagem206, imagem207, imagem208;
@@ -50,6 +58,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     int clickedFirst, clickedSecond;
     int cardNumber = 1;
     private String username;
+
+
+
 
     int playerScore = 0;
 
@@ -68,22 +79,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         tv_01 = findViewById(R.id.textViewPontuacao);
         tv_02 = findViewById(R.id.textViewUsername);
 
-        iv_01 = (ImageView) findViewById(R.id.iv_01);
-        iv_02 = (ImageView) findViewById(R.id.iv_02);
-        iv_03 = (ImageView) findViewById(R.id.iv_03);
-        iv_04 = (ImageView) findViewById(R.id.iv_04);
-        iv_05 = (ImageView) findViewById(R.id.iv_05);
-        iv_06 = (ImageView) findViewById(R.id.iv_06);
-        iv_07 = (ImageView) findViewById(R.id.iv_07);
-        iv_08 = (ImageView) findViewById(R.id.iv_08);
-        iv_09 = (ImageView) findViewById(R.id.iv_09);
-        iv_10 = (ImageView) findViewById(R.id.iv_10);
-        iv_11 = (ImageView) findViewById(R.id.iv_11);
-        iv_12 = (ImageView) findViewById(R.id.iv_12);
-        iv_13 = (ImageView) findViewById(R.id.iv_13);
-        iv_14 = (ImageView) findViewById(R.id.iv_14);
-        iv_15 = (ImageView) findViewById(R.id.iv_15);
-        iv_16 = (ImageView) findViewById(R.id.iv_16);
+        iv[0][0] = (ImageView) findViewById(R.id.iv_00);
+        iv[0][1] = (ImageView) findViewById(R.id.iv_01);
+        iv[0][2] = (ImageView) findViewById(R.id.iv_02);
+        iv[0][3] = (ImageView) findViewById(R.id.iv_03);
+        iv[1][0] = (ImageView) findViewById(R.id.iv_10);
+        iv[1][1] = (ImageView) findViewById(R.id.iv_11);
+        iv[1][2] = (ImageView) findViewById(R.id.iv_12);
+        iv[1][3] = (ImageView) findViewById(R.id.iv_13);
+        iv[2][0] = (ImageView) findViewById(R.id.iv_20);
+        iv[2][1] = (ImageView) findViewById(R.id.iv_21);
+        iv[2][2] = (ImageView) findViewById(R.id.iv_22);
+        iv[2][3] = (ImageView) findViewById(R.id.iv_23);
+        iv[3][0] = (ImageView) findViewById(R.id.iv_30);
+        iv[3][1] = (ImageView) findViewById(R.id.iv_31);
+        iv[3][2] = (ImageView) findViewById(R.id.iv_32);
+        iv[3][3] = (ImageView) findViewById(R.id.iv_33);
 
 
 
@@ -128,23 +139,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        for (int linha = 0; linha < 4; linha++) {
+            for (int coluna = 0; coluna < 4; coluna++) {
+                iv[linha][coluna].setTag(new Integer(linha * 10 + coluna));
 
-        iv_01.setTag("0");
-        iv_02.setTag("1");
-        iv_03.setTag("2");
-        iv_04.setTag("3");
-        iv_05.setTag("4");
-        iv_06.setTag("5");
-        iv_07.setTag("6");
-        iv_08.setTag("7");
-        iv_09.setTag("8");
-        iv_10.setTag("9");
-        iv_11.setTag("10");
-        iv_12.setTag("11");
-        iv_13.setTag("12");
-        iv_14.setTag("13");
-        iv_15.setTag("14");
-        iv_16.setTag("15");
+                iv[linha][coluna].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int theImg = (Integer) v.getTag();
+                        int linha = theImg / 10;
+                        int coluna = theImg % 10;
+                        seeImage((ImageView) v, linha, coluna);
+                    }
+                });
+            }
+        }
+
 
         tv_01.setText(playerScore+" POINTS");
 
@@ -152,181 +162,55 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         frontOfCardResources();
 
         //mistura as imgens
-        Collections.shuffle(Arrays.asList(imgarray));
-
-        iv_01.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_01, theImg);
-            }
-        });
-        iv_02.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_02, theImg);
-            }
-        });
-        iv_03.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_03, theImg);
-            }
-        });
-        iv_04.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_04, theImg);
-            }
-        });
-        iv_05.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_05, theImg);
-            }
-        });
-        iv_06.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_06, theImg);
-            }
-        });
-        iv_07.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_07, theImg);
-            }
-        });
-        iv_08.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_08, theImg);
-            }
-        });
-        iv_09.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_09, theImg);
-            }
-        });
-        iv_10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_10, theImg);
-            }
-        });
-        iv_11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_11, theImg);
-            }
-        });
-        iv_12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_12, theImg);
-            }
-        });
-        iv_13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_13, theImg);
-            }
-        });
-        iv_14.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_14, theImg);
-            }
-        });
-        iv_15.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_15, theImg);
-            }
-        });
-        iv_16.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int theImg = Integer.parseInt((String)view.getTag());
-                seeImage(iv_16, theImg);
-            }
-        });
-
-
+        Collections.shuffle(Arrays.asList(imagens));
     }
 
-    private void seeImage(ImageView iv, int numcard){
-        if(imgarray[numcard] == 101){
-            iv.setImageResource(imagem101);
-        }else if(imgarray[numcard] == 102){
-            iv.setImageResource(imagem102);
-        }else if(imgarray[numcard] == 103){
-            iv.setImageResource(imagem103);
-        }else if(imgarray[numcard] == 104){
-            iv.setImageResource(imagem104);
-        }else if(imgarray[numcard] == 105){
-            iv.setImageResource(imagem105);
-        }else if(imgarray[numcard] == 106){
-            iv.setImageResource(imagem106);
-        }else if(imgarray[numcard] == 107){
-            iv.setImageResource(imagem107);
-        }else if(imgarray[numcard] == 108){
-            iv.setImageResource(imagem108);
-        }else if(imgarray[numcard] == 201){
-            iv.setImageResource(imagem201);
-        }else if(imgarray[numcard] == 202){
-            iv.setImageResource(imagem202);
-        }else if(imgarray[numcard] == 203){
-            iv.setImageResource(imagem203);
-        }else if(imgarray[numcard] == 204){
-            iv.setImageResource(imagem204);
-        }else if(imgarray[numcard] == 205){
-            iv.setImageResource(imagem205);
-        }else if(imgarray[numcard] == 206){
-            iv.setImageResource(imagem206);
-        }else if(imgarray[numcard] == 207){
-            iv.setImageResource(imagem207);
-        }else if (imgarray[numcard] == 208){
-            iv.setImageResource(imagem208);
-
-
+    private void seeImage(ImageView imgv, int linha, int coluna){
+        if(imagens[linha][coluna] == 101){
+            imgv.setImageResource(imagem101);
+        }else if(imagens[linha][coluna] == 102){
+            imgv.setImageResource(imagem102);
+        }else if(imagens[linha][coluna] == 103){
+            imgv.setImageResource(imagem103);
+        }else if(imagens[linha][coluna] == 104){
+            imgv.setImageResource(imagem104);
+        }else if(imagens[linha][coluna]  == 105){
+            imgv.setImageResource(imagem105);
+        }else if(imagens[linha][coluna]  == 106){
+            imgv.setImageResource(imagem106);
+        }else if(imagens[linha][coluna]  == 107){
+            imgv.setImageResource(imagem107);
+        }else if(imagens[linha][coluna]  == 108){
+            imgv.setImageResource(imagem108);
         }
 
 
         // ver imagem selecionada e guardar temporariamente
         if(cardNumber == 1){
-            firstImage = imgarray[numcard];
-            if(firstImage > 200){
+            firstImage = imagens[linha][coluna];
+            /*if(firstImage > 200){
                 firstImage = firstImage-100;
-            }
+            }*/
             cardNumber = 2;
-            clickedFirst = numcard;
+            clickedFirst = imagens[linha][coluna];
 
-            iv.setEnabled(false);
+            imgv.setEnabled(false);
         } else if(cardNumber ==2){
-            secondImage = imgarray[numcard];
-            if(secondImage > 200){
+            secondImage = imagens[linha][coluna];
+            /*if(secondImage > 200){
                 secondImage = secondImage-100;
-            }
+            }*/
             cardNumber = 1;
-            clickedSecond = numcard;
+            clickedSecond = imagens[linha][coluna];
 
-            iv_01.setEnabled(false);
+            /*for (int l = 0; linha < 4; linha++) {
+                for (int c = 0; coluna < 4; coluna++) {
+                    iv[linha][coluna].setEnabled(false);
+                }
+            }*/
+            iv[linha][coluna].setEnabled(false);
+            
+            /*iv_01.setEnabled(false);
             iv_02.setEnabled(false);
             iv_03.setEnabled(false);
             iv_04.setEnabled(false);
@@ -341,7 +225,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             iv_13.setEnabled(false);
             iv_14.setEnabled(false);
             iv_15.setEnabled(false);
-            iv_16.setEnabled(false);
+            iv_16.setEnabled(false);*/
 
 
             Handler handler = new Handler();
@@ -358,7 +242,16 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     //se as imagens forem iguais vão desaparecer e contar para o score
     private void calculate() {
         if (firstImage == secondImage) {
-            if (clickedFirst == 0) {
+            for (int linha = 0; linha < 4; linha++) {
+                for (int coluna = 0; coluna < 4; coluna++) {
+                    int tag = (Integer) iv[linha][coluna].getTag();
+                    if(clickedFirst == tag){
+                        iv[linha][coluna].setVisibility(View.INVISIBLE);
+                    }
+                }
+            }
+            
+            /*if (clickedFirst == 0) {
                 iv_01.setVisibility(View.INVISIBLE);
             } else if (clickedFirst == 1) {
                 iv_02.setVisibility(View.INVISIBLE);
@@ -390,9 +283,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 iv_15.setVisibility(View.INVISIBLE);
             } else if (clickedFirst == 15) {
                 iv_16.setVisibility(View.INVISIBLE);
+            }*/
+
+            for (int linha = 0; linha < 4; linha++) {
+                for (int coluna = 0; coluna < 4; coluna++) {
+                    int tag = (Integer) iv[linha][coluna].getTag();
+                    if(clickedSecond == tag){
+                        iv[linha][coluna].setVisibility(View.INVISIBLE);
+                    }
+                }
             }
 
-            if (clickedSecond == 0) {
+            /*if (clickedSecond == 0) {
                 iv_01.setVisibility(View.INVISIBLE);
             } else if (clickedSecond == 1) {
                 iv_02.setVisibility(View.INVISIBLE);
@@ -424,7 +326,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 iv_15.setVisibility(View.INVISIBLE);
             } else if (clickedSecond == 15) {
                 iv_16.setVisibility(View.INVISIBLE);
-            }
+            }*/
 
             playerScore = playerScore +10;
             tv_01.setText(playerScore+" POINTS");
@@ -438,7 +340,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 tv_01.setText(playerScore+" POINTS");
             }
 
-            iv_01.setImageResource(R.drawable.image_question_mark);
+            for (int linha = 0; linha < 4; linha++) {
+                for (int coluna = 0; coluna < 4; coluna++) {
+                    iv[linha][coluna].setImageResource(R.drawable.image_question_mark);
+                }
+            }
+
+            /*iv_01.setImageResource(R.drawable.image_question_mark);
             iv_02.setImageResource(R.drawable.image_question_mark);
             iv_03.setImageResource(R.drawable.image_question_mark);
             iv_04.setImageResource(R.drawable.image_question_mark);
@@ -453,11 +361,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             iv_13.setImageResource(R.drawable.image_question_mark);
             iv_14.setImageResource(R.drawable.image_question_mark);
             iv_15.setImageResource(R.drawable.image_question_mark);
-            iv_16.setImageResource(R.drawable.image_question_mark);
+            iv_16.setImageResource(R.drawable.image_question_mark);*/
 
         }
 
-        iv_01.setEnabled(true);
+        for (int linha = 0; linha < 4; linha++) {
+            for (int coluna = 0; coluna < 4; coluna++) {
+                iv[linha][coluna].setEnabled(true);
+            }
+        }
+
+        /*iv_01.setEnabled(true);
         iv_02.setEnabled(true);
         iv_03.setEnabled(true);
         iv_04.setEnabled(true);
@@ -472,13 +386,25 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         iv_13.setEnabled(true);
         iv_14.setEnabled(true);
         iv_15.setEnabled(true);
-        iv_16.setEnabled(true);
+        iv_16.setEnabled(true);*/
 
         checkEnd();
     }
+    
+    private boolean checkVisible(){
+        for (int linha = 0; linha < 4; linha++) {
+            for (int coluna = 0; coluna < 4; coluna++) {
+                if(iv[linha][coluna].getVisibility() == View.VISIBLE){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
         private void checkEnd(){
-            if (iv_01.getVisibility() == View.INVISIBLE &&
+            if (checkVisible()==true
+                    /*iv_01.getVisibility() == View.INVISIBLE &&
                     iv_02.getVisibility() == View.INVISIBLE &&
                     iv_03.getVisibility() == View.INVISIBLE &&
                     iv_04.getVisibility() == View.INVISIBLE &&
@@ -493,7 +419,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     iv_13.getVisibility() == View.INVISIBLE &&
                     iv_14.getVisibility() == View.INVISIBLE &&
                     iv_15.getVisibility() == View.INVISIBLE &&
-                    iv_16.getVisibility() == View.INVISIBLE) {
+                    iv_16.getVisibility() == View.INVISIBLE*/) {
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(GameActivity.this);
                 alertDialogBuilder
