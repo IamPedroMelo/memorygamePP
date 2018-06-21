@@ -245,7 +245,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             for (int linha = 0; linha < 4; linha++) {
                 for (int coluna = 0; coluna < 4; coluna++) {
                     int tag = (Integer) iv[linha][coluna].getTag();
-                    if(clickedFirst == tag){
+                    int l= tag/10;
+                    int c= tag%0;
+                    if(clickedFirst == imagens[l][c]){
                         iv[linha][coluna].setVisibility(View.INVISIBLE);
                     }
                 }
@@ -288,7 +290,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             for (int linha = 0; linha < 4; linha++) {
                 for (int coluna = 0; coluna < 4; coluna++) {
                     int tag = (Integer) iv[linha][coluna].getTag();
-                    if(clickedSecond == tag){
+                    int l= tag/10;
+                    int c= tag%0;
+                    if(clickedSecond == imagens[l][c]){
                         iv[linha][coluna].setVisibility(View.INVISIBLE);
                     }
                 }
