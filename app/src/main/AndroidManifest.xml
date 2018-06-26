@@ -33,13 +33,17 @@
         <activity
             android:name=".GameActivity"
             android:label="@string/title_activity_game"
-            android:screenOrientation="portrait"
             android:parentActivityName=".menuActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pt.ipg.memorygamepp.menuActivity" />
         </activity>
+        <activity
+            android:name=".RecyclerViewPontuacao"
+            android:label="@string/title_activity_recycler_view_pontuacao"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

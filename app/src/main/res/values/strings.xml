@@ -9,4 +9,5 @@
     <string name="ok">Ok</string>
     <string name="tem_espaços">Têm espaços</string>
     <string name="muito_grande">Têm de ter menos de 16 caracteres</string>
+    <string name="title_activity_recycler_view_pontuacao">RecyclerViewPontuacao</string>
 </resources>
