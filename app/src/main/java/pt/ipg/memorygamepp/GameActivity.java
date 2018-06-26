@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
-import android.widget.Button;
 import android.widget.EditText;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,14 +30,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     };
 
     //imagens atuais
-    int imagem101, imagem102, imagem103, imagem104, imagem105, imagem106, imagem107, imagem108, imagem201, imagem202, imagem203, imagem204, imagem205, imagem206, imagem207, imagem208;
+    int imagem101, imagem102, imagem103, imagem104, imagem105, imagem106, imagem107, imagem108;
 
     int firstImage, secondImage;
     int cardNumber = 1;
     private String username;
 
     int playerScore = 0;
-
 
     @Override
     public void onBackPressed() {
@@ -125,7 +123,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         int theImg = (Integer) v.getTag();
                         int linha = theImg / 10;
                         int coluna = theImg % 10;
-                        seeImage((ImageView) v, linha, coluna);
+                        verImagem((ImageView) v, linha, coluna);
+
                     }
                 });
             }
@@ -141,7 +140,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         Collections.shuffle(Arrays.asList(imagens));
     }
 
-    private void seeImage(ImageView imgv, int linha, int coluna){
+    private void verImagem(ImageView imgv, int linha, int coluna){
         if(imagens[linha][coluna] == 101){
             imgv.setImageResource(imagem101);
         }else if(imagens[linha][coluna] == 102){
@@ -175,6 +174,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
             imgv.setEnabled(false);
 
+            //calculate();
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
