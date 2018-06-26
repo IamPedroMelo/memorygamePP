@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.widget.Switch;
+
 
 public class MemoryGameContentProvider extends ContentProvider{
 
@@ -17,17 +17,20 @@ public class MemoryGameContentProvider extends ContentProvider{
     public static final int HIGHSCORES_ID = 101;
     public static final int USERS = 200;
     public static final int USERS_ID = 201;
+    public static final String AUTHORITY = "pt.ipg.memorygamepp";
+    public static final String MULTIPLE_ITEMS = "vnd.android.cursor.dir";
+    public static final String SINGLE_ITEM = "vnd.android.cursor.item";
     DbMemoryGameOpenHelper dbMemoryGameOpenHelper;
 
     private static UriMatcher getHighscoresUriMatcher(){
 
         UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
-        uriMatcher.addURI("pt.ipg.memorygamepp","highscores", HIGHSCORES);
-        uriMatcher.addURI("pt.ipg.memorygamepp","highscores/#", HIGHSCORES_ID);
+        uriMatcher.addURI(AUTHORITY,"highscores", HIGHSCORES);
+        uriMatcher.addURI(AUTHORITY,"highscores/#", HIGHSCORES_ID);
 
-        uriMatcher.addURI("pt.ipg.memorygamepp","users", USERS);
-        uriMatcher.addURI("pt.ipg.memorygamepp","users/#", USERS_ID);
+        uriMatcher.addURI(AUTHORITY,"users", USERS);
+        uriMatcher.addURI(AUTHORITY,"users/#", USERS_ID);
 
         return uriMatcher;
     }
@@ -67,7 +70,22 @@ public class MemoryGameContentProvider extends ContentProvider{
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
-        return null;
+        UriMatcher matcher = getHighscoresUriMatcher();
+
+        switch (matcher.match(uri)){
+            case HIGHSCORES:
+                return MULTIPLE_ITEMS + "/" + AUTHORITY + "/" + DbTableHighScores.TABLE_NAME;
+            case USERS:
+                return MULTIPLE_ITEMS + "/" + AUTHORITY + "/" + DbTableUsers.TABLE_NAME;
+            case HIGHSCORES_ID:
+                return SINGLE_ITEM + "/" + AUTHORITY + "/" + DbTableHighScores.TABLE_NAME;
+            case USERS_ID:
+                return SINGLE_ITEM + "/" + AUTHORITY + "/" + DbTableUsers.TABLE_NAME;
+
+            default:
+                throw new UnsupportedOperationException("Unknown URI: " +uri);
+
+        }
     }
 
     @Nullable
