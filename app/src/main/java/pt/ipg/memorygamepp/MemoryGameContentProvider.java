@@ -4,6 +4,7 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -71,7 +72,32 @@ public class MemoryGameContentProvider extends ContentProvider{
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
-        return null;
+        SQLiteDatabase db = dbMemoryGameOpenHelper.getReadableDatabase();
+
+        UriMatcher matcher = getHighscoresUriMatcher();
+
+        long id = -1;
+
+        switch (matcher.match(uri)){
+            case HIGHSCORES:
+                id = new DbTableHighScores(db).insert(values);
+                break;
+            case USERS:
+                id = new DbTableUsers(db).insert(values);
+            default:
+                throw new UnsupportedOperationException("Invalid URI: " + uri);
+        }
+
+        if (id > 0){
+            notifyChanges(uri);
+            return Uri.withAppendedPath(uri,Long.toString(id));
+        }else{
+            throw new SQLException("Could not insert record");
+        }
+    }
+
+    private void notifyChanges(Uri uri) {
+        getContext().getContentResolver().notifyChange(uri,null);
     }
 
     @Override
