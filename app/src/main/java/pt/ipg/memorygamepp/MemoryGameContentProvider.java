@@ -103,7 +103,28 @@ public class MemoryGameContentProvider extends ContentProvider{
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
-        return 0;
+        SQLiteDatabase db = dbMemoryGameOpenHelper.getWritableDatabase();
+
+        UriMatcher matcher = getHighscoresUriMatcher();
+
+        String id = uri.getLastPathSegment();
+
+        int rows = 0;
+
+        switch (matcher.match(uri)){
+            case HIGHSCORES_ID:
+                rows = new DbTableHighScores(db).delete(DbTableHighScores._ID +"=?", new String[]{id});
+                break;
+            case USERS_ID:
+                rows = new DbTableUsers(db).delete(DbTableUsers._ID +"=?", new String[]{id});
+                break;
+            default:
+                throw new UnsupportedOperationException("Invalid URI: "+uri);
+        }
+
+        if (rows > 0) notifyChanges(uri);
+
+        return rows;
     }
 
     @Override
