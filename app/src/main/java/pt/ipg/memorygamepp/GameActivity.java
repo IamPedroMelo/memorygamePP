@@ -21,6 +21,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     ImageView iv [][] = new ImageView[4][4];
 
+    private boolean podeInteragir = true;
+
     //matriz das imagens
     int[][] imagens = new int[][] {
         {101, 102, 103, 104},
@@ -141,6 +143,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void verImagem(ImageView imgv, int linha, int coluna){
+        if (!podeInteragir) return;
+
         if(imagens[linha][coluna] == 101){
             imgv.setImageResource(imagem101);
         }else if(imagens[linha][coluna] == 102){
@@ -167,19 +171,21 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             cardNumber = 2;
 
             imgv.setEnabled(false);
-        } else if(cardNumber ==2){
+        } else {
+            podeInteragir = false;
+
             secondImage = imagens[linha][coluna];
 
             cardNumber = 1;
 
             imgv.setEnabled(false);
 
-            //calculate();
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     calculate();
+                    podeInteragir = true;
                 }
             },1000);
         }
