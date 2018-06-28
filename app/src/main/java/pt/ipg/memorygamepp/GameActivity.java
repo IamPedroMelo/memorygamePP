@@ -2,6 +2,8 @@ package pt.ipg.memorygamepp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,6 +39,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     int firstImage, secondImage;
     int cardNumber = 1;
     private String username;
+    private Users user = new Users();
+    private Cursor cursor;
 
     int playerScore = 0;
 
@@ -70,6 +74,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         iv[3][1] = (ImageView) findViewById(R.id.iv_31);
         iv[3][2] = (ImageView) findViewById(R.id.iv_32);
         iv[3][3] = (ImageView) findViewById(R.id.iv_33);
+
+
+        //abrir a base de dados
+        DbMemoryGameOpenHelper dbMemoryGameOpenHelper = new DbMemoryGameOpenHelper(getApplicationContext());
+        SQLiteDatabase db = dbMemoryGameOpenHelper.getWritableDatabase();
+
+        final DbTableUsers tableUsers = new DbTableUsers(db);
+
+        cursor = tableUsers.query(tableUsers.ALL_COLUMNS,null,null,null,null,null);
 
 
 
