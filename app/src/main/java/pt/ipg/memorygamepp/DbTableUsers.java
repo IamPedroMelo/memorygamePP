@@ -32,7 +32,6 @@ public class DbTableUsers implements BaseColumns {
     public  static ContentValues getContentValues(Users users){
         ContentValues values = new ContentValues();
 
-        values.put(_ID,users.getId());
         values.put(FIELD_USERNAME,users.getUsername());
 
         return values;

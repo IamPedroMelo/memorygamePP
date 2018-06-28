@@ -41,7 +41,6 @@ public class DbTableHighScores implements BaseColumns{
     public  static ContentValues getContentValues(HighScores highScores){
         ContentValues values = new ContentValues();
 
-        values.put(_ID,highScores.getId());
         values.put(FIELD_SCORE,highScores.getScore());
         values.put(FIELD_USER_ID,highScores.getUserId());
 
@@ -77,6 +76,7 @@ public class DbTableHighScores implements BaseColumns{
     }
 
     public Cursor query (String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy){
-        return db.query(TABLE_NAME, columns, selection, selectionArgs, groupBy, having, orderBy);
+        Cursor cursor = db.query(TABLE_NAME,columns,selection,selectionArgs,groupBy,having,orderBy);
+        return cursor;
     }
 }
