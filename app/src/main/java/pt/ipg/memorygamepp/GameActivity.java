@@ -82,9 +82,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         final DbTableUsers tableUsers = new DbTableUsers(db);
 
-        cursor = tableUsers.query(tableUsers.ALL_COLUMNS,null,null,null,null,null);
-
-
 
         final AlertDialog alertDialog = new AlertDialog.Builder(GameActivity.this).create();
         alertDialog.setMessage("Insira o seu username");
@@ -120,6 +117,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (input.getText().toString().contains(" ")) {
                     input.setError(getString(R.string.tem_espaços));
                 } else {
+                    user.setUsername(input.getText().toString());
+                    tableUsers.insert(DbTableUsers.getContentValues(user));
+                    cursor = tableUsers.query(tableUsers.ALL_COLUMNS,null,null,null,null,null);
+                    cursor.moveToFirst();
                     tv_02.setText(input.getText().toString());
                     wantToCloseDialog = true;
                 }
