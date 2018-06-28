@@ -31,8 +31,14 @@ public class RecyclerViewPontuacao extends AppCompatActivity implements LoaderMa
         highScoreCursorAdapter = new HighScoreCursorAdapter(this);
         recyclerViewHighScores.setAdapter(highScoreCursorAdapter);
 
-        getLoaderManager().initLoader(HIGHSCORES_CURSOR_LOADER_ID,null,(android.app.LoaderManager.LoaderCallbacks<Cursor>)this);
+        getSupportLoaderManager().initLoader(HIGHSCORES_CURSOR_LOADER_ID,null,this);
 
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        getSupportLoaderManager().restartLoader(HIGHSCORES_CURSOR_LOADER_ID,null,this);
     }
 
     public Loader<Cursor> onCreateLoader(int id, @NonNull Bundle args){
@@ -41,6 +47,7 @@ public class RecyclerViewPontuacao extends AppCompatActivity implements LoaderMa
         }
         return null;
     }
+
 
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
