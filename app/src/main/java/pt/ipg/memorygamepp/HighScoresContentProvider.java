@@ -11,13 +11,16 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 
-public class MemoryGameContentProvider extends ContentProvider{
+public class HighScoresContentProvider extends ContentProvider{
 
+    private static final String AUTHORITY = "pt.ipg.memorygamepp";
+    public static final Uri BASE_URI = Uri.parse("content://" + AUTHORITY);
+    public static final Uri HIGHSCORES_URI = Uri.withAppendedPath(BASE_URI, DbTableHighScores.TABLE_NAME);
     public static final int HIGHSCORES = 100;
     public static final int HIGHSCORES_ID = 101;
     public static final int USERS = 200;
     public static final int USERS_ID = 201;
-    public static final String AUTHORITY = "pt.ipg.memorygamepp";
+
     public static final String MULTIPLE_ITEMS = "vnd.android.cursor.dir";
     public static final String SINGLE_ITEM = "vnd.android.cursor.item";
     DbMemoryGameOpenHelper dbMemoryGameOpenHelper;
