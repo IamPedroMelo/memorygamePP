@@ -40,6 +40,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     int cardNumber = 1;
     private String username;
     private Users user = new Users();
+    private HighScores highScores = new HighScores();
     private Cursor cursor;
 
     int playerScore = 0;
@@ -80,7 +81,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         DbMemoryGameOpenHelper dbMemoryGameOpenHelper = new DbMemoryGameOpenHelper(getApplicationContext());
         SQLiteDatabase db = dbMemoryGameOpenHelper.getWritableDatabase();
 
-        final DbTableUsers tableUsers = new DbTableUsers(db);
+        //final DbTableUsers tableUsers = new DbTableUsers(db);
+        //final DbTableHighScores tableHighScores = new DbTableHighScores(db);
 
 
         final AlertDialog alertDialog = new AlertDialog.Builder(GameActivity.this).create();
@@ -117,10 +119,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (input.getText().toString().contains(" ")) {
                     input.setError(getString(R.string.tem_espaços));
                 } else {
-                    user.setUsername(input.getText().toString());
-                    tableUsers.insert(DbTableUsers.getContentValues(user));
-                    cursor = tableUsers.query(tableUsers.ALL_COLUMNS,null,null,null,null,null);
-                    cursor.moveToFirst();
+                    //user.setUsername(input.getText().toString());
+                    //tableUsers.insert(DbTableUsers.getContentValues(user));
+                    //Cursor cursorUser= tableUsers.query(tableUsers.ALL_COLUMNS,null,null,null,null,null);
+                    //cursorUser.moveToFirst();
+                    //user = tableUsers.getCurrentUserFromCursor(cursorUser);
                     tv_02.setText(input.getText().toString());
                     wantToCloseDialog = true;
                 }
@@ -145,7 +148,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 });
             }
         }
-
 
         tv_01.setText(playerScore+" POINTS");
 
