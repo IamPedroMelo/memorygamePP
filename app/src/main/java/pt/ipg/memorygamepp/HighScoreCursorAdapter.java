@@ -58,7 +58,7 @@ public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursor
         public HighScoreViewHolder(View itemView){
             super(itemView);
 
-            textViewUsername = itemView.findViewById(R.id.textViewUser);
+            textViewUsername = itemView.findViewById(R.id.textViewUser1);
             textViewScore = itemView.findViewById(R.id.textViewScore1);
         }
 

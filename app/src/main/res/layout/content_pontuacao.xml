@@ -88,10 +88,12 @@
         android:background="@drawable/rounded_button"
         android:hint="Highscore"
         android:textSize="20dp"
+        android:textAlignment="center"
+        android:paddingTop="14dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewUser"
-        app:layout_constraintTop_toTopOf="@+id/textViewUser" />
+        app:layout_constraintStart_toEndOf="@+id/textViewUser1"
+        app:layout_constraintTop_toTopOf="@+id/textViewUser1" />
 
     <TextView
         android:id="@+id/textView8"
@@ -149,17 +151,17 @@
         android:id="@+id/textView12"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
         android:background="@drawable/rounded_button"
         android:text="1"
         android:textAlignment="center"
         android:textColor="@android:color/holo_orange_light"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textViewUser"
+        app:layout_constraintEnd_toStartOf="@+id/textViewUser1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewUser" />
+        app:layout_constraintTop_toTopOf="@+id/textViewUser1" />
 
     <TextView
         android:id="@+id/textView10"
@@ -198,14 +200,16 @@
         app:layout_constraintTop_toTopOf="@+id/textView17" />
 
     <TextView
-        android:id="@+id/textViewUser"
+        android:id="@+id/textViewUser1"
         android:layout_width="150dp"
         android:layout_height="31dp"
         android:layout_marginLeft="28dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/rounded_button"
         android:hint="nome"
+        android:paddingTop="14dp"
+        android:textAlignment="center"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textViewScore1"
@@ -219,7 +223,7 @@
         android:layout_height="31dp"
         android:layout_marginLeft="28dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/rounded_button"
         android:hint="nome"
         android:textSize="20dp"
@@ -241,7 +245,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textView6"
         app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUser" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUser1" />
 
     <TextView
         android:id="@+id/textView17"
@@ -249,7 +253,7 @@
         android:layout_height="31dp"
         android:layout_marginLeft="28dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/rounded_button"
         android:hint="nome"
         android:textSize="20dp"
@@ -264,7 +268,7 @@
         android:layout_height="31dp"
         android:layout_marginLeft="28dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/rounded_button"
         android:hint="nome"
         android:textSize="20dp"
