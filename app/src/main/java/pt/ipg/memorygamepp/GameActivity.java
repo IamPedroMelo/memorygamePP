@@ -127,13 +127,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        Users users = new Users();
-        user.setUsername(tv_02.getText().toString());
-        int idUser = (int) DbTableUsers.insert(DbTableUsers.getContentValues(users));
-        HighScores highScores = new HighScores();
-        highScores.setScore(playerScore);
-        highScores.setUserId(idUser);
-        DbTableHighScores.insert(DbTableHighScores.getContentValues(highScores));
+
 
         for (int linha = 0; linha < 4; linha++) {
             for (int coluna = 0; coluna < 4; coluna++) {
@@ -262,7 +256,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
         private void checkEnd(){
+
+            Users users = new Users();
+            user.setUsername(tv_02.getText().toString());
+            int idUser = (int) DbTableUsers.insert(DbTableUsers.getContentValues(users));
+            HighScores highScores = new HighScores();
+            highScores.setScore(playerScore);
+            highScores.setUserId(idUser);
+            DbTableHighScores.insert(DbTableHighScores.getContentValues(highScores));
+
             if (checkVisible()==true) {
+
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(GameActivity.this);
                 alertDialogBuilder

@@ -2,7 +2,7 @@ package pt.ipg.memorygamepp;
 
 public class HighScores {
     private int id;
-    private int score;
+    private static int score;
 
     public int getId() {
         return id;
@@ -22,7 +22,7 @@ public class HighScores {
 
     private int userId;
 
-    public int getScore() {
+    public static int getScore() {
         return score;
     }
 

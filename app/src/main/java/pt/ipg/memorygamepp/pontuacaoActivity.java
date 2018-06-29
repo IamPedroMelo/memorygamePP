@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class pontuacaoActivity extends AppCompatActivity {
 
-    TextView tvp1, tvu1;
+    TextView tvp1, tvu1, tvu2;
     int user;
 
     @Override
@@ -25,6 +25,7 @@ public class pontuacaoActivity extends AppCompatActivity {
 
         tvu1 = (TextView) findViewById(R.id.textViewUser1);
         tvp1 = findViewById(R.id.textViewScore1);
+        tvu2 = findViewById(R.id.textViewUser2);
 
         DbMemoryGameOpenHelper dbMemoryGameOpenHelper = new DbMemoryGameOpenHelper(getApplicationContext());
 
@@ -37,6 +38,21 @@ public class pontuacaoActivity extends AppCompatActivity {
         cursorUser.moveToFirst();
 
         Users user = tableUsers.getCurrentUserFromCursor(cursorUser);
+
+        Cursor cursorHighScore = tableHighScores.query(tableHighScores.ALL_COLUMNS,null,null,null,null,null);
+        cursorHighScore.moveToFirst();
+
+        HighScores highScores = tableHighScores.getCurrentHighScoresFromCursor(cursorHighScore);
+
+        tvu1.setText(user.getUsername());
+        //tvp1.setText(highScores.getScore());
+        cursorUser.moveToNext();
+        Users user1 = tableUsers.getCurrentUserFromCursor(cursorUser);
+        tvu2.setText(user.getUsername());
+
+
+
+
 
 
 
