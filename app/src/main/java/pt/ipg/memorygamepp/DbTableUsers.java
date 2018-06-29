@@ -51,7 +51,7 @@ public class DbTableUsers implements BaseColumns {
         return user;
     }
 
-    public long insert(ContentValues values){
+    public static long insert(ContentValues values){
         return db.insert(TABLE_NAME,null,values);
     }
 

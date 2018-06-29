@@ -79,10 +79,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         //abrir a base de dados
         DbMemoryGameOpenHelper dbMemoryGameOpenHelper = new DbMemoryGameOpenHelper(getApplicationContext());
-        SQLiteDatabase db = dbMemoryGameOpenHelper.getWritableDatabase();
+        final SQLiteDatabase db = dbMemoryGameOpenHelper.getWritableDatabase();
 
-        //final DbTableUsers tableUsers = new DbTableUsers(db);
-        //final DbTableHighScores tableHighScores = new DbTableHighScores(db);
+        final DbTableUsers tableUsers = new DbTableUsers(db);
+        final DbTableHighScores tableHighScores = new DbTableHighScores(db);
 
 
         final AlertDialog alertDialog = new AlertDialog.Builder(GameActivity.this).create();
@@ -119,11 +119,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (input.getText().toString().contains(" ")) {
                     input.setError(getString(R.string.tem_espaços));
                 } else {
-                    //user.setUsername(input.getText().toString());
-                    //tableUsers.insert(DbTableUsers.getContentValues(user));
-                    //Cursor cursorUser= tableUsers.query(tableUsers.ALL_COLUMNS,null,null,null,null,null);
-                    //cursorUser.moveToFirst();
-                    //user = tableUsers.getCurrentUserFromCursor(cursorUser);
                     tv_02.setText(input.getText().toString());
                     wantToCloseDialog = true;
                 }
@@ -131,6 +126,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     alertDialog.dismiss();
             }
         });
+
+        Users users = new Users();
+        user.setUsername(tv_02.getText().toString());
+        int idUser = (int) DbTableUsers.insert(DbTableUsers.getContentValues(users));
+        HighScores highScores = new HighScores();
+        highScores.setScore(playerScore);
+        highScores.setUserId(idUser);
+        DbTableHighScores.insert(DbTableHighScores.getContentValues(highScores));
 
         for (int linha = 0; linha < 4; linha++) {
             for (int coluna = 0; coluna < 4; coluna++) {
@@ -282,7 +285,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
                 alertDialog.setCanceledOnTouchOutside(false);
-
             }
         }
 

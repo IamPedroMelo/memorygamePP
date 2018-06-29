@@ -14,7 +14,7 @@ public class DbTableHighScores implements BaseColumns{
     public static final String FIELD_SCORE = "score";
     public static final String FIELD_USER_ID = "userId";
 
-    private final SQLiteDatabase db;
+    private static SQLiteDatabase db;
 
     public static final String[] ALL_COLUMNS = new String[]{_ID,FIELD_SCORE,FIELD_USER_ID};
 
@@ -63,7 +63,7 @@ public class DbTableHighScores implements BaseColumns{
 
     }
 
-    public long insert(ContentValues values){
+    public static long insert(ContentValues values){
         return db.insert(TABLE_NAME,null,values);
     }
 
