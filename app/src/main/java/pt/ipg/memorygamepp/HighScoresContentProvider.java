@@ -16,6 +16,7 @@ public class HighScoresContentProvider extends ContentProvider{
     private static final String AUTHORITY = "pt.ipg.memorygamepp";
     public static final Uri BASE_URI = Uri.parse("content://" + AUTHORITY);
     public static final Uri HIGHSCORES_URI = Uri.withAppendedPath(BASE_URI, DbTableHighScores.TABLE_NAME);
+    public static final Uri USERS_URI = Uri.withAppendedPath(BASE_URI, DbTableUsers.TABLE_NAME);
     public static final int HIGHSCORES = 100;
     public static final int HIGHSCORES_ID = 101;
     public static final int USERS = 200;

@@ -11,7 +11,7 @@ public class DbTableUsers implements BaseColumns {
     public static final String TABLE_NAME = "Users";
     public static final String FIELD_USERNAME = "Username";
 
-    private final SQLiteDatabase db;
+    private static SQLiteDatabase db;
 
     public static final String [] ALL_COLUMNS = new String[]{_ID,FIELD_USERNAME};
 
