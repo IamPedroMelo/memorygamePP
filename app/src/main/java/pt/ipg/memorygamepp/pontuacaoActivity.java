@@ -36,7 +36,9 @@ public class pontuacaoActivity extends AppCompatActivity {
         Cursor cursorUser = tableUsers.query(tableUsers.ALL_COLUMNS,null,null,null,null,null);
         cursorUser.moveToFirst();
 
-        //user = tableUsers.getCurrentUserFromCursor(cursorUser);
+        Users user = tableUsers.getCurrentUserFromCursor(cursorUser);
+
+
 
 
 

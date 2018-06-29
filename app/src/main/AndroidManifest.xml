@@ -44,6 +44,11 @@
             android:name=".RecyclerViewPontuacao"
             android:label="@string/title_activity_recycler_view_pontuacao"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <provider
+            android:authorities="pt.ipg.memorygamepp"
+            android:name=".HighScoresContentProvider"
+            android:exported="false"
+            />
     </application>
 
 </manifest>
