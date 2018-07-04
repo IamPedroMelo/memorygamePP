@@ -42,7 +42,7 @@ public class RecyclerViewPontuacao extends AppCompatActivity implements LoaderMa
 
     public Loader<Cursor> onCreateLoader(int id, @NonNull Bundle args){
         if(id == HIGHSCORES_CURSOR_LOADER_ID){
-            return new android.support.v4.content.CursorLoader(this,HighScoresContentProvider.HIGHSCORES_URI,DbTableHighScores.ALL_COLUMNS,null,null,null);
+            return new CursorLoader(this,HighScoresContentProvider.HIGHSCORES_URI,DbTableHighScores.ALL_COLUMNS,null,null,null);
         }
         return null;
     }

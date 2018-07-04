@@ -14,6 +14,8 @@ public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursor
 
     private Context context;
     private Cursor cursor = null;
+    private View.OnClickListener viewHolderClickListener = null;
+    private int lastHighScoresClicked = -1;
 
     public HighScoreCursorAdapter(Context context){
         this.context = context;
@@ -26,11 +28,17 @@ public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursor
         }
     }
 
+    public void setViewHolderClickListener(View.OnClickListener viewHolderClickListener){
+        this.viewHolderClickListener = viewHolderClickListener;
+    }
+    public int getLastHighScoresClicked(){
+        return lastHighScoresClicked;
+    }
+
     @NonNull
     @Override
-    public HighScoreViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HighScoreCursorAdapter.HighScoreViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View item = LayoutInflater.from(context).inflate(R.layout.item_pontuacao,parent,false);
-
         return new HighScoreViewHolder(item);
     }
 
@@ -45,24 +53,39 @@ public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursor
     @Override
     public int getItemCount() {
         if(cursor == null) return 0;
-
         return cursor.getCount();
     }
 
-    public class HighScoreViewHolder extends RecyclerView.ViewHolder {
+    public class HighScoreViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView textViewUsername;
         private TextView textViewScore;
+        private int highscoresid;
 
         public HighScoreViewHolder(View itemView){
             super(itemView);
-
             textViewUsername = itemView.findViewById(R.id.textViewUserItem);
             textViewScore = itemView.findViewById(R.id.textViewScoreItem);
+
+            itemView.setOnClickListener(this);
         }
 
         public void setHighScores(HighScores highscores) {
             textViewUsername.setText(highscores.getScore());/*highscores.getUserId()*/
             textViewScore.setText(highscores.getScore());
+            highscoresid = highscores.getId();
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            if(position == RecyclerView.NO_POSITION){
+                return;
+            }
+
+            if(viewHolderClickListener != null){
+                lastHighScoresClicked = highscoresid;
+                viewHolderClickListener.onClick(v);
+            }
         }
     }
 }
