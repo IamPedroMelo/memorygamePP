@@ -83,7 +83,7 @@ public class menuActivity extends AppCompatActivity {
     }
 
     public void MudaActivityPontuacao(View view) {
-        Intent intent = new Intent(this,pontuacaoActivity.class);
+        Intent intent = new Intent(this,RecyclerViewPontuacao.class);
         startActivity(intent);
     }
 }

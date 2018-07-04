@@ -19,18 +19,17 @@ public class RecyclerViewPontuacao extends AppCompatActivity implements LoaderMa
    private static final int HIGHSCORES_CURSOR_LOADER_ID = 0;
 
    private HighScoreCursorAdapter highScoreCursorAdapter;
+   private RecyclerView recyclerViewHighScores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_recycler_view_pontuacao);
+        setContentView(R.layout.activity_recycler_view_pontuacao);
 
-        RecyclerView recyclerViewHighScores = (RecyclerView) findViewById(R.id.recyclerview);
-
+        recyclerViewHighScores = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerViewHighScores.setLayoutManager(new LinearLayoutManager(this));
         highScoreCursorAdapter = new HighScoreCursorAdapter(this);
         recyclerViewHighScores.setAdapter(highScoreCursorAdapter);
-
         getSupportLoaderManager().initLoader(HIGHSCORES_CURSOR_LOADER_ID,null,this);
 
     }
@@ -43,7 +42,7 @@ public class RecyclerViewPontuacao extends AppCompatActivity implements LoaderMa
 
     public Loader<Cursor> onCreateLoader(int id, @NonNull Bundle args){
         if(id == HIGHSCORES_CURSOR_LOADER_ID){
-            return new CursorLoader(this,HighScoresContentProvider.HIGHSCORES_URI,DbTableHighScores.ALL_COLUMNS,null,null,null);
+            return new android.support.v4.content.CursorLoader(this,HighScoresContentProvider.HIGHSCORES_URI,DbTableHighScores.ALL_COLUMNS,null,null,null);
         }
         return null;
     }

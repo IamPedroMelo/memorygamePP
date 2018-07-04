@@ -78,7 +78,7 @@
         app:layout_constraintTop_toTopOf="@+id/textViewUser2" />
 
     <TextView
-        android:id="@+id/textViewScore1"
+        android:id="@+id/textViewScoreItem"
         android:layout_width="111dp"
         android:layout_height="31dp"
         android:layout_marginEnd="8dp"
@@ -92,8 +92,8 @@
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewUser1"
-        app:layout_constraintTop_toTopOf="@+id/textViewUser1" />
+        app:layout_constraintStart_toEndOf="@+id/textViewUserItem"
+        app:layout_constraintTop_toTopOf="@+id/textViewUserItem" />
 
     <TextView
         android:id="@+id/textView8"
@@ -159,9 +159,9 @@
         android:textColor="@android:color/holo_orange_light"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textViewUser1"
+        app:layout_constraintEnd_toStartOf="@+id/textViewUserItem"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewUser1" />
+        app:layout_constraintTop_toTopOf="@+id/textViewUserItem" />
 
     <TextView
         android:id="@+id/textView10"
@@ -200,7 +200,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView17" />
 
     <TextView
-        android:id="@+id/textViewUser1"
+        android:id="@+id/textViewUserItem"
         android:layout_width="150dp"
         android:layout_height="31dp"
         android:layout_marginLeft="28dp"
@@ -212,7 +212,7 @@
         android:textColor="@android:color/holo_orange_light"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textViewScore1"
+        app:layout_constraintEnd_toStartOf="@+id/textViewScoreItem"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -246,7 +246,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textView6"
         app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUser1" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserItem" />
 
     <TextView
         android:id="@+id/textView17"

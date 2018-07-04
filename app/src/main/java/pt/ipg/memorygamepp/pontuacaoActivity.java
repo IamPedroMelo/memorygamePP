@@ -1,13 +1,9 @@
 package pt.ipg.memorygamepp;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -23,8 +19,8 @@ public class pontuacaoActivity extends AppCompatActivity {
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
-        tvu1 = (TextView) findViewById(R.id.textViewUser1);
-        tvp1 = findViewById(R.id.textViewScore1);
+        tvu1 = (TextView) findViewById(R.id.textViewUserItem);
+        tvp1 = findViewById(R.id.textViewScoreItem);
         tvu2 = findViewById(R.id.textViewUser2);
 
         DbMemoryGameOpenHelper dbMemoryGameOpenHelper = new DbMemoryGameOpenHelper(getApplicationContext());

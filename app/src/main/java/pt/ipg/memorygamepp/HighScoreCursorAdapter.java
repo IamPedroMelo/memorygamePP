@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 
 public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursorAdapter.HighScoreViewHolder>{
 
@@ -31,7 +29,7 @@ public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursor
     @NonNull
     @Override
     public HighScoreViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View item = LayoutInflater.from(context).inflate(R.layout.content_pontuacao,parent,false);
+        View item = LayoutInflater.from(context).inflate(R.layout.item_pontuacao,parent,false);
 
         return new HighScoreViewHolder(item);
     }
@@ -58,12 +56,12 @@ public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursor
         public HighScoreViewHolder(View itemView){
             super(itemView);
 
-            textViewUsername = itemView.findViewById(R.id.textViewUser1);
-            textViewScore = itemView.findViewById(R.id.textViewScore1);
+            textViewUsername = itemView.findViewById(R.id.textViewUserItem);
+            textViewScore = itemView.findViewById(R.id.textViewScoreItem);
         }
 
         public void setHighScores(HighScores highscores) {
-            textViewUsername.setText(highscores.getUserId());
+            textViewUsername.setText(20);/*highscores.getUserId()*/
             textViewScore.setText(highscores.getScore());
         }
     }
