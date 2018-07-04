@@ -14,8 +14,11 @@ import android.widget.EditText;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.lang.annotation.Documented;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Random;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -25,7 +28,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     private boolean podeInteragir = true;
 
-    //matriz das imagens
+    /**
+     * matriz das imagens
+     */
     int[][] imagens = new int[][] {
         {101, 102, 103, 104},
         {105, 106, 107, 108},
@@ -33,7 +38,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         {105, 106, 107, 108}
     };
 
-    //imagens atuais
+    /**
+     * imagens atuais
+     */
     int imagem101, imagem102, imagem103, imagem104, imagem105, imagem106, imagem107, imagem108;
 
     int firstImage, secondImage;
@@ -77,7 +84,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         iv[3][3] = (ImageView) findViewById(R.id.iv_33);
 
 
-        //abrir a base de dados
+        /**
+         * abrir a base de dados
+         */
         DbMemoryGameOpenHelper dbMemoryGameOpenHelper = new DbMemoryGameOpenHelper(getApplicationContext());
         SQLiteDatabase db = dbMemoryGameOpenHelper.getWritableDatabase();
 
@@ -85,7 +94,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         DbTableHighScores tableHighScores = new DbTableHighScores(db);
 
 
-        //alert dialog para o utilizador por o username
+        /**
+         * alert dialog para o utilizador por o username
+         */
         final AlertDialog alertDialog = new AlertDialog.Builder(GameActivity.this).create();
         alertDialog.setMessage(getString(R.string.username));
 
@@ -129,7 +140,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
-        //setonclick listener para as imageviews
+        /**
+         * setonclicklistener para as imageviews
+         */
         for (int linha = 0; linha < 4; linha++) {
             for (int coluna = 0; coluna < 4; coluna++) {
                 iv[linha][coluna].setTag(new Integer(linha * 10 + coluna));
@@ -149,11 +162,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         tv_01.setText(playerScore+" POINTS");
 
-        //carrega imagens
+        /**
+         * carrega imagens
+         */
         frontOfCardResources();
 
-        //mistura as imgens - pode ser melhorado
-        Collections.shuffle(Arrays.asList(imagens));
+        /**
+         * mistura as imgens
+         */
+        misturaImagens();
     }
 
     private void verImagem(ImageView imgv, int linha, int coluna){
@@ -177,8 +194,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             imgv.setImageResource(imagem108);
         }
 
-
-        // ver imagem selecionada e guardar temporariamente
+        /**
+         * ver imagens selecionadas e guardar temporariamente, quando alguem clica no segundo compara as duas com a função calculate
+         */
         if(cardNumber == 1){
             firstImage = imagens[linha][coluna];
 
@@ -205,7 +223,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    //se as imagens forem iguais vão desaparecer e contar para o score
+    /**
+     * se as imagens forem iguais vão desaparecer e contar para o score
+     */
     private void calculate() {
         if (firstImage == secondImage) {
             for (int linha = 0; linha < 4; linha++) {
@@ -228,7 +248,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 tv_01.setText(playerScore+" POINTS");
             }
 
-            //voltar a meter as cartas viradas ao contrário
+            /**
+             * voltar a meter as cartas viradas ao contrário
+             */
             for (int linha = 0; linha < 4; linha++) {
                 for (int coluna = 0; coluna < 4; coluna++) {
                     iv[linha][coluna].setImageResource(R.drawable.image_question_mark);
@@ -236,7 +258,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         }
-        //permitir clicar na image view
+        /**
+         * permitir clicar na image view
+         */
         for (int linha = 0; linha < 4; linha++) {
             for (int coluna = 0; coluna < 4; coluna++) {
                 iv[linha][coluna].setEnabled(true);
@@ -245,7 +269,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         checkEnd();
     }
 
-    //verificar se as imagens estão invisiveis
+    /**
+     * verificar se as imagens estão invisiveis
+     * @return
+     */
     private boolean checkVisible(){
         for (int linha = 0; linha < 4; linha++) {
             for (int coluna = 0; coluna < 4; coluna++) {
@@ -257,11 +284,33 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
-        //verificar se o jogo ja acabou
-        private void checkEnd(){
+    /**
+     * função para misturar as imagens
+     */
+    private void misturaImagens(){
+        Random random = new Random();
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                int il = random.nextInt(i+1);
+                int jl = random.nextInt(j+1);
 
-            //meter o username e o score na base de dados
-            Users users = new Users();
+                int temp = imagens[i][j];
+                imagens[i][j] = imagens[il][jl];
+                imagens[il][jl] = temp;
+
+            }
+        }
+    }
+
+    /**
+     * verificar se o jogo ja acabou
+     */
+    private void checkEnd(){
+
+        /**
+         * meter o username e o score na base de dados
+         */
+        Users users = new Users();
             user.setUsername(tv_02.getText().toString());
             int idUser = (int) DbTableUsers.insert(DbTableUsers.getContentValues(users));
             HighScores highScores = new HighScores();
@@ -271,7 +320,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
             if (checkVisible()==true) {
 
-                //alertdialog que abre quando ganhamos o jogo
+                /**
+                 * alertdialog que abre quando ganhamos o jogo
+                 */
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(GameActivity.this);
                 alertDialogBuilder
                         .setMessage(getString(R.string.parabens)+playerScore)
@@ -297,8 +348,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        //atrbuir o drawable a imageview
-        private void frontOfCardResources () {
+    /**
+     * atrbuir o drawable a imageview
+     */
+    private void frontOfCardResources () {
             imagem101 = R.drawable.image101;
             imagem102 = R.drawable.image102;
             imagem103 = R.drawable.image103;
@@ -315,7 +368,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    //alert dialog que abre quando clicamos no botão desistir
+    /**
+     * alert dialog que abre quando clicamos no botão desistir
+     * @param view
+     */
     public void Sair(View view) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
         builder.setMessage(getString(R.string.rippprogresso));
