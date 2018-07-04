@@ -168,7 +168,7 @@
         android:background="@drawable/rounded_button"
         android:onClick="Sair"
         android:paddingTop="14dp"
-        android:text="DESISTIR"
+        android:text="@string/desistir"
         android:textAlignment="center"
         android:textColor="@android:color/holo_orange_light"
         android:textSize="20dp"

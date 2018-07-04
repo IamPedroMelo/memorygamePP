@@ -61,7 +61,7 @@ public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursor
         }
 
         public void setHighScores(HighScores highscores) {
-            textViewUsername.setText(20);/*highscores.getUserId()*/
+            textViewUsername.setText(highscores.getScore());/*highscores.getUserId()*/
             textViewScore.setText(highscores.getScore());
         }
     }

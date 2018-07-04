@@ -86,7 +86,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
 
         final AlertDialog alertDialog = new AlertDialog.Builder(GameActivity.this).create();
-        alertDialog.setMessage("Insira o seu username");
+        alertDialog.setMessage(getString(R.string.username));
 
         final EditText input = new EditText(GameActivity.this);
         alertDialog.setView(input);
@@ -270,9 +270,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(GameActivity.this);
                 alertDialogBuilder
-                        .setMessage("Parabéns, a sua pontuação final é: "+playerScore)
+                        .setMessage(getString(R.string.parabens)+playerScore)
                         .setCancelable(false)
-                        .setPositiveButton("Novo Jogo", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(getString(R.string.novo_jogo), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent = new Intent(getApplicationContext(),GameActivity.class);
@@ -280,12 +280,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                                 finish();
                             }
                         })
-                        .setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.sair), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                finish();
                             }
                         });
+
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
                 alertDialog.setCanceledOnTouchOutside(false);
@@ -311,15 +312,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     public void Sair(View view) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
-        builder.setMessage("Se desistir perde o seu progresso! Têm a certeza que quer sair?");
+        builder.setMessage(getString(R.string.rippprogresso));
         builder.setCancelable(true);
-        builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getString(R.string.nao), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
-        builder.setPositiveButton("Desistir", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getString(R.string.desistir), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();

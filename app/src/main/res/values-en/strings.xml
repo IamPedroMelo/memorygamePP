@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MemoryWars</string>
+    <string name="action_settings">Settings</string>
+    <string name="novo_jogo">New Game</string>
+    <string name="title_activity_help">helpActivity</string>
+    <string name="title_activity_pontuacao">HighScoreActivity</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="nao_tem_caracteres">It\'s empty</string>
+    <string name="ok">Ok</string>
+    <string name="tem_espaços">Has spaces</string>
+    <string name="muito_grande">Less than 16 characters</string>
+    <string name="title_activity_recycler_view_pontuacao">RecyclerView</string>
+    <string name="pontua_o">HighScore</string>
+    <string name="sair">Exit</string>
+    <string name="ajuda">Help</string>
+    <string name="voltar">Go Back</string>
+    <string name="textodaajuda">The classic game of memory, if you get the pair you win 10 points if you dont you loose 5 points.</string>
+    <string name="desistir">Give Up</string>
+    <string name="username">Write your Username</string>
+    <string name="parabens">Congrats, your final score is:</string>
+    <string name="nao">No</string>
+    <string name="rippprogresso">If you give up you will loose your progress! Are you sure?</string>
+</resources>
