@@ -25,13 +25,15 @@ public class RecyclerViewPontuacao extends AppCompatActivity implements LoaderMa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view_pontuacao);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         recyclerViewHighScores = (RecyclerView) findViewById(R.id.recyclerview);
+
         recyclerViewHighScores.setLayoutManager(new LinearLayoutManager(this));
         highScoreCursorAdapter = new HighScoreCursorAdapter(this);
         recyclerViewHighScores.setAdapter(highScoreCursorAdapter);
         getSupportLoaderManager().initLoader(HIGHSCORES_CURSOR_LOADER_ID,null,this);
-
     }
 
     @Override

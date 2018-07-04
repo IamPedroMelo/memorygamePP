@@ -79,12 +79,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         //abrir a base de dados
         DbMemoryGameOpenHelper dbMemoryGameOpenHelper = new DbMemoryGameOpenHelper(getApplicationContext());
-        final SQLiteDatabase db = dbMemoryGameOpenHelper.getWritableDatabase();
+        SQLiteDatabase db = dbMemoryGameOpenHelper.getWritableDatabase();
 
-        final DbTableUsers tableUsers = new DbTableUsers(db);
-        final DbTableHighScores tableHighScores = new DbTableHighScores(db);
+        DbTableUsers tableUsers = new DbTableUsers(db);
+        DbTableHighScores tableHighScores = new DbTableHighScores(db);
 
 
+        //alert dialog para o utilizador por o username
         final AlertDialog alertDialog = new AlertDialog.Builder(GameActivity.this).create();
         alertDialog.setMessage(getString(R.string.username));
 
@@ -128,7 +129,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
-
+        //setonclick listener para as imageviews
         for (int linha = 0; linha < 4; linha++) {
             for (int coluna = 0; coluna < 4; coluna++) {
                 iv[linha][coluna].setTag(new Integer(linha * 10 + coluna));
@@ -151,7 +152,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         //carrega imagens
         frontOfCardResources();
 
-        //mistura as imgens
+        //mistura as imgens - pode ser melhorado
         Collections.shuffle(Arrays.asList(imagens));
     }
 
@@ -200,7 +201,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     calculate();
                     podeInteragir = true;
                 }
-            },1000);
+            },600);
         }
     }
 
@@ -227,7 +228,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 tv_01.setText(playerScore+" POINTS");
             }
 
-
+            //voltar a meter as cartas viradas ao contrário
             for (int linha = 0; linha < 4; linha++) {
                 for (int coluna = 0; coluna < 4; coluna++) {
                     iv[linha][coluna].setImageResource(R.drawable.image_question_mark);
@@ -235,7 +236,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         }
-
+        //permitir clicar na image view
         for (int linha = 0; linha < 4; linha++) {
             for (int coluna = 0; coluna < 4; coluna++) {
                 iv[linha][coluna].setEnabled(true);
@@ -243,7 +244,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
         checkEnd();
     }
-    
+
+    //verificar se as imagens estão invisiveis
     private boolean checkVisible(){
         for (int linha = 0; linha < 4; linha++) {
             for (int coluna = 0; coluna < 4; coluna++) {
@@ -255,8 +257,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
+        //verificar se o jogo ja acabou
         private void checkEnd(){
 
+            //meter o username e o score na base de dados
             Users users = new Users();
             user.setUsername(tv_02.getText().toString());
             int idUser = (int) DbTableUsers.insert(DbTableUsers.getContentValues(users));
@@ -267,7 +271,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
             if (checkVisible()==true) {
 
-
+                //alertdialog que abre quando ganhamos o jogo
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(GameActivity.this);
                 alertDialogBuilder
                         .setMessage(getString(R.string.parabens)+playerScore)
@@ -293,6 +297,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+        //atrbuir o drawable a imageview
         private void frontOfCardResources () {
             imagem101 = R.drawable.image101;
             imagem102 = R.drawable.image102;
@@ -310,6 +315,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //alert dialog que abre quando clicamos no botão desistir
     public void Sair(View view) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
         builder.setMessage(getString(R.string.rippprogresso));

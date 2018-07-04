@@ -14,8 +14,6 @@ public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursor
 
     private Context context;
     private Cursor cursor = null;
-    private View.OnClickListener viewHolderClickListener = null;
-    private int lastHighScoresClicked = -1;
 
     public HighScoreCursorAdapter(Context context){
         this.context = context;
@@ -26,13 +24,6 @@ public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursor
             this.cursor = cursor;
             notifyDataSetChanged();
         }
-    }
-
-    public void setViewHolderClickListener(View.OnClickListener viewHolderClickListener){
-        this.viewHolderClickListener = viewHolderClickListener;
-    }
-    public int getLastHighScoresClicked(){
-        return lastHighScoresClicked;
     }
 
     @NonNull
@@ -56,7 +47,8 @@ public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursor
         return cursor.getCount();
     }
 
-    public class HighScoreViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+    public class HighScoreViewHolder extends RecyclerView.ViewHolder{
         private TextView textViewUsername;
         private TextView textViewScore;
         private int highscoresid;
@@ -66,7 +58,6 @@ public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursor
             textViewUsername = itemView.findViewById(R.id.textViewUserItem);
             textViewScore = itemView.findViewById(R.id.textViewScoreItem);
 
-            itemView.setOnClickListener(this);
         }
 
         public void setHighScores(HighScores highscores) {
@@ -75,18 +66,6 @@ public class HighScoreCursorAdapter extends RecyclerView.Adapter<HighScoreCursor
             highscoresid = highscores.getId();
         }
 
-        @Override
-        public void onClick(View v) {
-            int position = getAdapterPosition();
-            if(position == RecyclerView.NO_POSITION){
-                return;
-            }
-
-            if(viewHolderClickListener != null){
-                lastHighScoresClicked = highscoresid;
-                viewHolderClickListener.onClick(v);
-            }
-        }
     }
 }
 
