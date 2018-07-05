@@ -20,4 +20,5 @@
     <string name="textodaajuda">O jogo clássico da memória, quem acertar nos pares ganha 10 pontos quem falhar perde 5.</string>
     <string name="desistir">DESISTIR</string>
     <string name="username">Utilizador</string>
+    <string name="hasenter">Apenas uma linha</string>
 </resources>

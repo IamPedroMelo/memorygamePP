@@ -46,15 +46,6 @@ public class pontuacaoActivity extends AppCompatActivity {
         Users user1 = tableUsers.getCurrentUserFromCursor(cursorUser);
         tvu2.setText(user.getUsername());
 
-
-
-
-
-
-
-
-
-
     }
 
 

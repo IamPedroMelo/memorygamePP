@@ -130,6 +130,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     input.setError(getString(R.string.nao_tem_caracteres));
                 } else if (input.getText().toString().contains(" ")) {
                     input.setError(getString(R.string.tem_espaços));
+                } else if(input.getText().toString().contains("\n")){
+                    input.setError(getString(R.string.hasenter));
                 } else {
                     tv_02.setText(input.getText().toString());
                     wantToCloseDialog = true;
